@@ -11,7 +11,7 @@ export default function fullScene() {
         restitution={0}
         rotation={[Math.PI / 2, 0, 0]}
         type="fixed"
-        position={[40, 4, 0]}
+        position={[40, -10, 0]}
         colliders="trimesh"
       >
         <primitive castShadow receiveShadow object={I.scene} scale={0.25} />
