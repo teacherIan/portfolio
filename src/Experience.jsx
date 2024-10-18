@@ -24,7 +24,7 @@ export default function Experience() {
 
         <OrbitControls makeDefault />
         <Lights />
-        {/* <Floor /> */}
+        <Floor />
         <ALoader xOffset={6} />
         <ILoader xOffset={40} />
         <SquareRightLoader xOffset={-44} />
