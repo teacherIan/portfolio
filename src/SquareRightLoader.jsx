@@ -36,7 +36,7 @@ export default function SquareRightLoader({ xOffset }) {
       >
         <instancedMesh castShadow receiveShadow args={[null, null, cubesCount]}>
           <sphereGeometry args={[1]} />
-          <meshStandardMaterial color="purple" />
+          <meshStandardMaterial color="#F26A8D" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>

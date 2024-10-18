@@ -36,7 +36,7 @@ export default function Loader({ xOffset }) {
       >
         <instancedMesh castShadow receiveShadow args={[null, null, cubesCount]}>
           <sphereGeometry args={[1]} />
-          <meshStandardMaterial color="#B6174B" />
+          <meshStandardMaterial color="#1C5253" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>
