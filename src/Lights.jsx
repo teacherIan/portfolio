@@ -6,7 +6,7 @@ export default function Lights() {
         position={[50, 40, -100]}
         intensity={9}
       />
-      <ambientLight intensity={1} />
+      <ambientLight intensity={2} />
     </>
   );
 }
