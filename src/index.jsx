@@ -15,7 +15,7 @@ root.render(
       position: [
         window.innerWidth < 1400 ? -40 : -10,
         window.innerWidth < 1400 ? 30 : 20,
-        window.innerWidth < 1400 ? -270 : -110,
+        window.innerWidth < 1400 ? -170 : -110,
       ],
     }}
   >
