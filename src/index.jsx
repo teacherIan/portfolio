@@ -10,7 +10,7 @@ root.render(
     // shadows
     camera={{
       fov: window.innerWidth < 1400 ? 40 : 40,
-      near: 0.1,
+      near: 1,
       far: 2000,
       position: [
         window.innerWidth < 1400 ? -40 : -10,
