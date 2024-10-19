@@ -9,7 +9,7 @@ import {
 import { useMemo } from 'react';
 
 export default function Loader({ xOffset }) {
-  const cubesCount = 300;
+  const cubesCount = 400;
   const instances = useMemo(() => {
     const instances = [];
 
@@ -18,7 +18,7 @@ export default function Loader({ xOffset }) {
         key: 'instance_' + i,
         position: [
           (Math.random() - 0.5) * 2 + xOffset,
-          50 + i * 3,
+          150 + i * 4,
           (Math.random() - 0.5) * 2,
         ],
         rotation: [Math.random(), Math.random(), Math.random()],
@@ -30,13 +30,13 @@ export default function Loader({ xOffset }) {
   return (
     <>
       <InstancedRigidBodies
-        restitution={0}
+        restitution={0.4}
         instances={instances}
         colliders="ball"
       >
         <instancedMesh castShadow receiveShadow args={[null, null, cubesCount]}>
-          <sphereGeometry args={[1]} />
-          <meshStandardMaterial color="#1C5253" />
+          <sphereGeometry args={[1.3]} />
+          <meshStandardMaterial color="#C3EB78" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>

@@ -11,7 +11,7 @@ import { useMemo } from 'react';
 export default function SquareLeftLoader({ xOffset }) {
   const I = useGLTF('./I.glb');
 
-  const cubesCount = 200;
+  const cubesCount = 100;
   const instances = useMemo(() => {
     const instances = [];
 
@@ -20,7 +20,7 @@ export default function SquareLeftLoader({ xOffset }) {
         key: 'instance_' + i,
         position: [
           (Math.random() - 0.5) * 2 + xOffset,
-          50 + i * 2,
+          200 + i * 4,
           (Math.random() - 0.5) * 2,
         ],
         // rotation: [Math.random(), Math.random(), Math.random()],
@@ -37,7 +37,7 @@ export default function SquareLeftLoader({ xOffset }) {
         colliders="ball"
       >
         <instancedMesh castShadow receiveShadow args={[null, null, cubesCount]}>
-          <sphereGeometry args={[1]} />
+          <sphereGeometry args={[1.5]} />
           <meshStandardMaterial color="tomato" />
         </instancedMesh>
       </InstancedRigidBodies>
