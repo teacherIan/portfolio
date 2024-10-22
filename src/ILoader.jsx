@@ -18,7 +18,7 @@ export default function ILoader({ xOffset }) {
         key: 'instance_' + i,
         position: [
           (Math.random() - 0.5) * 2 + xOffset,
-          50 + i * 5,
+          500 + i * 5,
           (Math.random() - 0.5) * 2,
         ],
         rotation: [Math.random(), Math.random(), Math.random()],
