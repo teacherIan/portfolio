@@ -22,7 +22,7 @@ export default function Experience() {
       <Physics debug={false} gravity={[0, -9.08, 0]}>
         <FullScene />
         {/* <Perf position="top-left" /> */}
-        <Sky />
+        {/* <Sky /> */}
         <OrbitControls makeDefault />
         <Lights />
         <Floor />

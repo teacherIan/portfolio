@@ -17,8 +17,8 @@ export default function Floor() {
           minDepthThreshold={0.4}
           maxDepthThreshold={1.4}
           color="#ffffff"
-          metalness={0.5}
-          opacity={0.1}
+          metalness={1}
+          opacity={1}
         />
       </mesh>
     </RigidBody>
