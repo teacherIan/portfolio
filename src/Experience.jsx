@@ -15,22 +15,21 @@ import SquareRightLoader from './SquareRightLoader';
 import SquareMiddleLoader from './SquareMiddleLoader';
 import ILoader from './ILoader';
 import ALoader from './ALoader';
+import Cissp from './Cissp';
 
 export default function Experience() {
   return (
     <>
       <Physics debug={false} gravity={[0, -9.08, 0]}>
         <FullScene />
-        {/* <Perf position="top-left" /> */}
-        {/* <Sky /> */}
         <OrbitControls makeDefault />
         <Lights />
         <Floor />
         <ALoader xOffset={6} />
         <ILoader xOffset={40} />
-        <SquareRightLoader xOffset={-44} />
+        {/* <SquareRightLoader xOffset={-44} /> */}
         <SquareMiddleLoader xOffset={-29} />
-        <SquareLeftLoader xOffset={-20} />
+        {/* <SquareLeftLoader xOffset={-20} /> */}
       </Physics>
     </>
   );

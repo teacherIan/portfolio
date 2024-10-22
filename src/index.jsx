@@ -9,11 +9,11 @@ root.render(
   <Canvas
     // shadows
     camera={{
-      fov: window.innerWidth < 1400 ? 100 : 40,
+      fov: window.innerWidth < 1400 ? 70 : 40,
       near: 1,
       far: 2000,
       position: [
-        window.innerWidth < 1400 ? -40 : -10,
+        window.innerWidth < 1400 ? -50 : -10,
         window.innerWidth < 1400 ? 30 : 20,
         window.innerWidth < 1400 ? -120 : -110,
       ],
