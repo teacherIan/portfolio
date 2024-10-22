@@ -7,17 +7,18 @@ export default function Floor() {
       <mesh position-y={-9.3} rotation-x={-Math.PI * 0.5} scale={1000}>
         <planeGeometry />
         <MeshReflectorMaterial
+          transparent
           // blur={[30, 30]}
           resolution={4096}
           mixBlur={1}
           mixStrength={80}
-          roughness={0.5}
-          depthScale={1.2}
+          roughness={0.1}
+          depthScale={6}
           minDepthThreshold={0.4}
           maxDepthThreshold={1.4}
-          color="#050505"
-          metalness={0.3}
-          opacity={0}
+          color="#ffffff"
+          metalness={0.5}
+          opacity={0.1}
         />
       </mesh>
     </RigidBody>

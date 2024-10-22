@@ -1,11 +1,4 @@
-import { useGLTF, OrbitControls } from '@react-three/drei';
-import { Perf } from 'r3f-perf';
-import {
-  InstancedRigidBodies,
-  CylinderCollider,
-  RigidBody,
-  Physics,
-} from '@react-three/rapier';
+import { InstancedRigidBodies } from '@react-three/rapier';
 import { useMemo } from 'react';
 
 export default function SquareRightLoader({ xOffset }) {

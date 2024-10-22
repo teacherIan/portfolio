@@ -20,8 +20,9 @@ export default function Experience() {
   return (
     <>
       <Physics debug={false} gravity={[0, -9.08, 0]}>
+        <FullScene />
         {/* <Perf position="top-left" /> */}
-        {/* <Sky /> */}
+        <Sky />
         <OrbitControls makeDefault />
         <Lights />
         <Floor />
@@ -30,8 +31,6 @@ export default function Experience() {
         <SquareRightLoader xOffset={-44} />
         <SquareMiddleLoader xOffset={-29} />
         <SquareLeftLoader xOffset={-20} />
-
-        <FullScene />
       </Physics>
     </>
   );
