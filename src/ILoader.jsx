@@ -11,7 +11,7 @@ export default function ILoader({ xOffset }) {
         key: 'instance_' + i,
         position: [
           (Math.random() - 0.5) * 2 + xOffset,
-          0 + i * 5,
+          10 + i * 5,
           (Math.random() - 0.5) * 2,
         ],
         rotation: [Math.random(), Math.random(), Math.random()],
@@ -25,10 +25,10 @@ export default function ILoader({ xOffset }) {
       <InstancedRigidBodies
         restitution={0}
         instances={instances}
-        colliders="cuboid"
+        colliders="ball"
       >
         <instancedMesh args={[null, null, cubesCount]}>
-          <boxGeometry args={[2, 2, 2]} />
+          <sphereGeometry args={[1.3]} />
           <meshStandardMaterial color="#7C9EB2" />
         </instancedMesh>
       </InstancedRigidBodies>

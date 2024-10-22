@@ -11,7 +11,7 @@ export default function SquareLeftLoader({ xOffset }) {
         key: 'instance_' + i,
         position: [
           (Math.random() - 0.5) * 2 + xOffset,
-          0 + i * 4,
+          20 + i * 4,
           (Math.random() - 0.5) * 2,
         ],
         rotation: [Math.random(), Math.random(), Math.random()],

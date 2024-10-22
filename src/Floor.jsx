@@ -12,11 +12,11 @@ export default function Floor() {
           resolution={4096}
           mixBlur={1}
           mixStrength={80}
-          roughness={0.1}
+          roughness={0.4}
           depthScale={6}
           minDepthThreshold={0.4}
           maxDepthThreshold={1.4}
-          color="#ffffff"
+          color="#333333"
           metalness={1}
           opacity={1}
         />
