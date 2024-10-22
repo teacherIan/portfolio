@@ -9,7 +9,7 @@ import {
 import { useMemo } from 'react';
 
 export default function ILoader({ xOffset }) {
-  const cubesCount = 420;
+  const cubesCount = 200;
   const instances = useMemo(() => {
     const instances = [];
 
@@ -18,7 +18,7 @@ export default function ILoader({ xOffset }) {
         key: 'instance_' + i,
         position: [
           (Math.random() - 0.5) * 2 + xOffset,
-          500 + i * 5,
+          200 + i * 5,
           (Math.random() - 0.5) * 2,
         ],
         rotation: [Math.random(), Math.random(), Math.random()],
@@ -32,11 +32,11 @@ export default function ILoader({ xOffset }) {
       <InstancedRigidBodies
         restitution={0}
         instances={instances}
-        colliders="ball"
+        colliders="cuboid"
       >
-        <instancedMesh castShadow receiveShadow args={[null, null, cubesCount]}>
-          <sphereGeometry args={[1]} />
-          <meshStandardMaterial color="#ffffff" />
+        <instancedMesh args={[null, null, cubesCount]}>
+          <boxGeometry args={[2, 2, 2]} />
+          <meshStandardMaterial color="#7C9EB2" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>

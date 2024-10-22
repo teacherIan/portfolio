@@ -23,7 +23,7 @@ export default function SquareLeftLoader({ xOffset }) {
           250 + i * 5,
           (Math.random() - 0.5) * 2,
         ],
-        // rotation: [Math.random(), Math.random(), Math.random()],
+        rotation: [Math.random(), Math.random(), Math.random()],
       });
     }
 

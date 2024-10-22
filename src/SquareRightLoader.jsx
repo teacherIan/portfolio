@@ -9,7 +9,7 @@ import {
 import { useMemo } from 'react';
 
 export default function SquareRightLoader({ xOffset }) {
-  const cubesCount = 100;
+  const cubesCount = 130;
   const instances = useMemo(() => {
     const instances = [];
 
@@ -18,7 +18,7 @@ export default function SquareRightLoader({ xOffset }) {
         key: 'instance_' + i,
         position: [
           (Math.random() - 0.5) * 2 + xOffset,
-          150 + i * 4,
+          100 + i * 4,
           (Math.random() - 0.5) * 2,
         ],
         rotation: [Math.random(), Math.random(), Math.random()],
@@ -32,10 +32,10 @@ export default function SquareRightLoader({ xOffset }) {
       <InstancedRigidBodies
         restitution={0}
         instances={instances}
-        colliders="ball"
+        colliders="cuboid"
       >
-        <instancedMesh castShadow receiveShadow args={[null, null, cubesCount]}>
-          <sphereGeometry args={[1.5]} />
+        <instancedMesh args={[null, null, cubesCount]}>
+          <boxGeometry args={[2, 2, 2]} />
           <meshStandardMaterial color="#F26A8D" />
         </instancedMesh>
       </InstancedRigidBodies>

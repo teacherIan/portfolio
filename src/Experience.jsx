@@ -1,4 +1,4 @@
-import { useGLTF, OrbitControls } from '@react-three/drei';
+import { useGLTF, OrbitControls, Sky } from '@react-three/drei';
 import { Perf } from 'r3f-perf';
 import {
   InstancedRigidBodies,
@@ -21,7 +21,7 @@ export default function Experience() {
     <>
       <Physics debug={false} gravity={[0, -9.08, 0]}>
         {/* <Perf position="top-left" /> */}
-
+        {/* <Sky /> */}
         <OrbitControls makeDefault />
         <Lights />
         <Floor />
