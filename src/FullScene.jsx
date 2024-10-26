@@ -1,7 +1,8 @@
 import { useGLTF } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
+import scene from '../src/assets/scene.glb';
 export default function fullScene() {
-  const I = useGLTF('./scene.glb');
+  const I = useGLTF(scene);
 
   return (
     <>
