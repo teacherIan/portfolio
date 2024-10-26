@@ -2,7 +2,7 @@ import { InstancedRigidBodies } from '@react-three/rapier';
 import { useMemo } from 'react';
 
 export default function SquareLeftLoader({ xOffset }) {
-  const cubesCount = 480;
+  const cubesCount = 100; //480
   const instances = useMemo(() => {
     const instances = [];
 

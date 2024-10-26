@@ -2,7 +2,7 @@ import { InstancedRigidBodies } from '@react-three/rapier';
 import { useMemo } from 'react';
 
 export default function ILoader({ xOffset }) {
-  const cubesCount = 320;
+  const cubesCount = 100; //320
   const instances = useMemo(() => {
     const instances = [];
 

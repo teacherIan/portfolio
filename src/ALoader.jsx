@@ -9,7 +9,7 @@ import {
 import { useMemo } from 'react';
 
 export default function Loader({ xOffset }) {
-  const cubesCount = 450;
+  const cubesCount = 100; //450
   const instances = useMemo(() => {
     const instances = [];
 
