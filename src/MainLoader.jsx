@@ -38,7 +38,12 @@ export default function MainLoader({ xOffset }) {
       >
         <instancedMesh castShadow args={[null, null, cubesCount]}>
           <sphereGeometry args={[1.6]} />
-          <meshPhysicalMaterial clearcoat={1} color="#E43F6F" />
+          <meshPhysicalMaterial
+            // iridescence={1}
+            metalness={0.7}
+            clearcoat={1}
+            color="#dd1F1F"
+          />
         </instancedMesh>
       </InstancedRigidBodies>
     </>
