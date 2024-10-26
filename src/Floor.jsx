@@ -6,7 +6,7 @@ export default function Floor() {
     <RigidBody type="fixed">
       <mesh position-y={-9.3} rotation-x={-Math.PI * 0.5} scale={1000}>
         <planeGeometry />
-        <MeshReflectorMaterial
+        <meshStandardMaterial
           transparent
           // blur={[30, 30]}
           resolution={4096}
