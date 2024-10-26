@@ -29,7 +29,7 @@ export default function SquareRightLoader({ xOffset }) {
       >
         <instancedMesh args={[null, null, cubesCount]}>
           <boxGeometry args={[2, 2, 2]} />
-          <meshStandardMaterial color="#F26A8D" />
+          <meshPhongMaterial shininess={100} color="#F26A8D" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>

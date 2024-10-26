@@ -16,11 +16,15 @@ import SquareMiddleLoader from './SquareMiddleLoader';
 import ILoader from './ILoader';
 import ALoader from './ALoader';
 import Cissp from './Cissp';
+import CCNA from './CCNA';
+import Aws from './Aws';
+import CertText from './CertText';
+import Linkedin from './Linkedin';
 
 export default function Experience() {
   return (
     <>
-      <Physics debug={false} gravity={[0, -9.08, 0]}>
+      <Physics debug={false} gravity={[0, -10, 0]}>
         <FullScene />
         <OrbitControls makeDefault />
         <Lights />
@@ -30,7 +34,13 @@ export default function Experience() {
         {/* <SquareRightLoader xOffset={-44} /> */}
         <SquareMiddleLoader xOffset={-29} />
         {/* <SquareLeftLoader xOffset={-20} /> */}
+        <Cissp />
+        <CCNA />
+        <Aws />
+        <Linkedin />
       </Physics>
+
+      <CertText />
     </>
   );
 }

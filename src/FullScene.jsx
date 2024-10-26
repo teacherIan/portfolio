@@ -9,8 +9,8 @@ export default function fullScene() {
         restitution={0}
         rotation={[Math.PI / 2, 0, 0]}
         type="fixed"
-        position={[40, -10, 0]}
-        colliders="trimesh"
+        position={[40, -9.5, 0]}
+        colliders="hull"
       >
         <primitive object={I.scene} scale={0.25} />
       </RigidBody>

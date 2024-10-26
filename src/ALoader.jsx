@@ -9,7 +9,7 @@ import {
 import { useMemo } from 'react';
 
 export default function Loader({ xOffset }) {
-  const cubesCount = 390;
+  const cubesCount = 450;
   const instances = useMemo(() => {
     const instances = [];
 
@@ -32,11 +32,11 @@ export default function Loader({ xOffset }) {
       <InstancedRigidBodies
         restitution={0}
         instances={instances}
-        colliders="cuboid"
+        colliders="ball"
       >
         <instancedMesh args={[null, null, cubesCount]}>
-          <boxGeometry args={[2, 2, 2]} />
-          <meshStandardMaterial color="#C3EB78" />
+          <sphereGeometry args={[1.2]} />
+          <meshPhongMaterial wireframe shininess={100} color="#C3EB78" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>

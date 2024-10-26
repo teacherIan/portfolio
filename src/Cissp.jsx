@@ -2,15 +2,15 @@ import { useGLTF } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
 
 export default function Cissp() {
-  const CISSP = useGLTF('./cisspTwo.glb');
+  const CISSP = useGLTF('./cissp.glb');
   return (
     <RigidBody
-      restitution={0}
-      rotation={[0, 0, 0]}
+      restitution={10}
+      rotation={[-Math.PI / 2, Math.PI, Math.PI / 6]}
       type="fixed"
-      scale={100}
-      position={[2, 5, -30]}
-      colliders="trimesh"
+      scale={53}
+      position={[-25, -1.2, -28]}
+      colliders="cuboid"
     >
       <primitive object={CISSP.scene} scale={0.25} />
     </RigidBody>

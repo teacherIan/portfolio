@@ -2,7 +2,7 @@ import { InstancedRigidBodies } from '@react-three/rapier';
 import { useMemo } from 'react';
 
 export default function ILoader({ xOffset }) {
-  const cubesCount = 200;
+  const cubesCount = 320;
   const instances = useMemo(() => {
     const instances = [];
 
@@ -28,8 +28,8 @@ export default function ILoader({ xOffset }) {
         colliders="ball"
       >
         <instancedMesh args={[null, null, cubesCount]}>
-          <sphereGeometry args={[1.3]} />
-          <meshStandardMaterial color="#7C9EB2" />
+          <sphereGeometry args={[1.1]} />
+          <meshPhongMaterial shininess={100} color="#7C9EB2" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>

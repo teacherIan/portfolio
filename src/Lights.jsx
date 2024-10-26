@@ -13,10 +13,10 @@ export default function Lights() {
       />
       {/* <directionalLight
         // castShadow
-        position={[-50, 20, 50]}
-        intensity={2}
+        position={[-50, 100, 10]}
+        intensity={0.4}
       /> */}
-      <ambientLight intensity={1} />
+      <ambientLight intensity={0} />
     </>
   );
 }
