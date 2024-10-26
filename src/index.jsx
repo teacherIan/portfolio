@@ -11,7 +11,7 @@ root.render(
     camera={{
       fov: window.innerWidth < 1400 ? 70 : 40,
       near: 1,
-      far: 2000,
+      far: 500,
       position: [
         window.innerWidth < 1400 ? -50 : 50,
         window.innerWidth < 1400 ? 30 : 30,
