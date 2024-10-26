@@ -33,7 +33,7 @@ export default function MainLoader({ xOffset }) {
       >
         <instancedMesh castShadow receiveShadow args={[null, null, cubesCount]}>
           <sphereGeometry args={[1.5]} />
-          <meshStandardMaterial color="#7C9EB2" />
+          <meshBasicMaterial color="#7C9EB2" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>
