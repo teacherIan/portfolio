@@ -29,7 +29,7 @@ export default function ILoader({ xOffset }) {
       >
         <instancedMesh args={[null, null, cubesCount]}>
           <sphereGeometry args={[1.1]} />
-          <meshPhongMaterial shininess={100} color="#7C9EB2" />
+          <meshStandardMaterial shininess={100} color="#7C9EB2" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>
