@@ -40,7 +40,7 @@ export default function Experience() {
         {/* <Linkedin /> */}
       </Physics>
 
-      <CertText />
+      {/* <CertText /> */}
     </>
   );
 }
