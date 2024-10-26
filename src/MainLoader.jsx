@@ -1,5 +1,10 @@
 import { InstancedRigidBodies } from '@react-three/rapier';
 import { useMemo } from 'react';
+import matCap from './assets/matCap.png';
+import { useMatcapTexture } from '@react-three/drei';
+import { TextureLoader } from 'three';
+import { useLoader } from '@react-three/fiber';
+import * as THREE from 'three';
 
 export default function MainLoader({ xOffset }) {
   const cubesCount = 500; //480
@@ -27,13 +32,13 @@ export default function MainLoader({ xOffset }) {
   return (
     <>
       <InstancedRigidBodies
-        restitution={0}
+        restitution={0.5}
         instances={instances}
         colliders="ball"
       >
         <instancedMesh castShadow receiveShadow args={[null, null, cubesCount]}>
           <sphereGeometry args={[1.6]} />
-          <meshPhongMaterial shininess={100} color="#7C9EB2" />
+          <meshMatcapMaterial color="#e59a9a" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>

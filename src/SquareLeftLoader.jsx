@@ -23,7 +23,7 @@ export default function SquareLeftLoader({ xOffset }) {
   return (
     <>
       <InstancedRigidBodies
-        restitution={0.5}
+        restitution={0.3}
         instances={instances}
         colliders="ball"
       >
