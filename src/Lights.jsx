@@ -18,7 +18,7 @@ export default function Lights() {
       <directionalLight
         castShadow
         position={[10, 20, -10]}
-        intensity={3}
+        intensity={2}
         shadow-mapSize-width={2046} // Large shadow map width
         shadow-mapSize-height={2046} // Large shadow map height
         shadow-camera-near={0.5} // Near plane
@@ -29,7 +29,7 @@ export default function Lights() {
         shadow-camera-bottom={-300} // Bottom plane
       />
 
-      <ambientLight intensity={2} />
+      <ambientLight intensity={1} />
     </>
   );
 }
