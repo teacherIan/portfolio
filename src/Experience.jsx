@@ -1,4 +1,4 @@
-import { useGLTF, OrbitControls, Sky } from '@react-three/drei';
+import { useGLTF, OrbitControls, Sky, SoftShadows } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import Lights from './Lights';
 import Floor from './Floor';
@@ -9,6 +9,7 @@ import Cissp from './Cissp';
 export default function Experience() {
   return (
     <>
+      {/* <Sky /> */}
       <Physics debug={false} gravity={[0, -9, 0]}>
         <FullScene />
         <OrbitControls makeDefault />

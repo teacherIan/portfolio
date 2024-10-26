@@ -36,9 +36,9 @@ export default function MainLoader({ xOffset }) {
         instances={instances}
         colliders="ball"
       >
-        <instancedMesh castShadow receiveShadow args={[null, null, cubesCount]}>
+        <instancedMesh castShadow args={[null, null, cubesCount]}>
           <sphereGeometry args={[1.6]} />
-          <meshMatcapMaterial color="#e59a9a" />
+          <meshPhysicalMaterial clearcoat={1} color="#049ef4" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>
