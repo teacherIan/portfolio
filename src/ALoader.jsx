@@ -36,7 +36,7 @@ export default function Loader({ xOffset }) {
       >
         <instancedMesh args={[null, null, cubesCount]}>
           <sphereGeometry args={[1.2]} />
-          <meshStandardMaterial shininess={100} color="#C3EB78" />
+          <meshStandardMaterial color="#C3EB78" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>

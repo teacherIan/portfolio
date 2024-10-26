@@ -33,7 +33,7 @@ export default function SquareLeftLoader({ xOffset }) {
       >
         <instancedMesh castShadow receiveShadow args={[null, null, cubesCount]}>
           <sphereGeometry args={[1.3]} />
-          <meshStandardMaterial shininess={100} color="#8B0000" />
+          <meshStandardMaterial color="#8B0000" />
         </instancedMesh>
       </InstancedRigidBodies>
     </>
