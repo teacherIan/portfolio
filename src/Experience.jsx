@@ -3,11 +3,6 @@ import { Physics } from '@react-three/rapier';
 import Lights from './Lights';
 import Floor from './Floor';
 import FullScene from './FullScene';
-import Cissp from './Cissp';
-import CCNA from './CCNA';
-import Aws from './Aws';
-import CertText from './CertText';
-import Linkedin from './Linkedin';
 import MainLoader from './MainLoader';
 
 export default function Experience() {
@@ -18,15 +13,8 @@ export default function Experience() {
         <OrbitControls makeDefault />
         <Lights />
         <Floor />
-        <MainLoader />
-
-        {/* <Cissp /> */}
-        {/* <CCNA /> */}
-        {/* <Aws /> */}
-        {/* <Linkedin /> */}
+        {/* <MainLoader /> */}
       </Physics>
-
-      {/* <CertText /> */}
     </>
   );
 }
