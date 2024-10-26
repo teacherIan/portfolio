@@ -20,19 +20,21 @@ import CCNA from './CCNA';
 import Aws from './Aws';
 import CertText from './CertText';
 import Linkedin from './Linkedin';
+import MainLoader from './MainLoader';
 
 export default function Experience() {
   return (
     <>
-      <Physics debug={false} gravity={[0, -10, 0]}>
+      <Physics debug={false} gravity={[0, -7, 0]}>
         <FullScene />
         <OrbitControls makeDefault />
         <Lights />
         <Floor />
-        <ALoader xOffset={6} />
-        <ILoader xOffset={40} />
+        <MainLoader />
+        {/* <ALoader xOffset={6} /> */}
+        {/* <ILoader xOffset={40} /> */}
         {/* <SquareRightLoader xOffset={-44} /> */}
-        <SquareMiddleLoader xOffset={-29} />
+        {/* <SquareMiddleLoader xOffset={-29} /> */}
         {/* <SquareLeftLoader xOffset={-20} /> */}
         {/* <Cissp /> */}
         {/* <CCNA /> */}
