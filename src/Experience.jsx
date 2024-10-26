@@ -13,7 +13,7 @@ export default function Experience() {
         <OrbitControls makeDefault />
         <Lights />
         <Floor />
-        {/* <MainLoader /> */}
+        <MainLoader />
       </Physics>
     </>
   );
