@@ -34,10 +34,10 @@ export default function Experience() {
         {/* <SquareRightLoader xOffset={-44} /> */}
         <SquareMiddleLoader xOffset={-29} />
         {/* <SquareLeftLoader xOffset={-20} /> */}
-        <Cissp />
-        <CCNA />
-        <Aws />
-        <Linkedin />
+        {/* <Cissp /> */}
+        {/* <CCNA /> */}
+        {/* <Aws /> */}
+        {/* <Linkedin /> */}
       </Physics>
 
       <CertText />
