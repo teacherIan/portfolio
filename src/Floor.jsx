@@ -16,8 +16,8 @@ export default function Floor() {
           // blur={[30, 30]}
           resolution={2046}
           mixBlur={1}
-          mixStrength={80}
-          roughness={0.4}
+          mixStrength={100}
+          roughness={0.8}
           depthScale={6}
           minDepthThreshold={0.4}
           maxDepthThreshold={1.4}

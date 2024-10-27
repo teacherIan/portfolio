@@ -5,9 +5,12 @@ import { useMatcapTexture } from '@react-three/drei';
 import { TextureLoader } from 'three';
 import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
+import mapImport from './assets/map.png';
 
 export default function MainLoader({ xOffset }) {
-  const [map] = useMatcapTexture('36220C_C6C391_8C844A_8B7B4C'); //31 40 45
+  // const [map] = useMatcapTexture(mapImport); //31 40 45
+  const matcapTexture = useLoader(TextureLoader, mapImport); // Update with your matcap path
+
   const cubesCount = 500; //480
   const instances = useMemo(() => {
     const instances = [];
@@ -44,7 +47,7 @@ export default function MainLoader({ xOffset }) {
             // metalness={0.7}
             // clearcoat={1}
             // color="#dd1F1F"
-            matcap={map}
+            matcap={matcapTexture}
           />
         </instancedMesh>
       </InstancedRigidBodies>
