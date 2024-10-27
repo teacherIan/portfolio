@@ -5,6 +5,10 @@ import Floor from './Floor';
 import FullScene from './FullScene';
 import MainLoader from './MainLoader';
 import Cissp from './Cissp';
+import CCNA from './CCNA';
+import Aws from './Aws';
+import CertText from './CertText';
+import Linkedin from './Linkedin';
 
 export default function Experience() {
   return (
@@ -17,7 +21,11 @@ export default function Experience() {
         <Floor />
         <MainLoader />
         <Cissp />
+        <CCNA />\
+        <Aws />
+        <Linkedin />
       </Physics>
+      <CertText />
     </>
   );
 }

@@ -7,6 +7,7 @@ import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 
 export default function MainLoader({ xOffset }) {
+  const [map] = useMatcapTexture(40); //31 40
   const cubesCount = 500; //480
   const instances = useMemo(() => {
     const instances = [];
@@ -38,11 +39,13 @@ export default function MainLoader({ xOffset }) {
       >
         <instancedMesh castShadow args={[null, null, cubesCount]}>
           <sphereGeometry args={[1.6]} />
-          <meshPhysicalMaterial
+          <meshMatcapMaterial
             // iridescence={1}
-            metalness={0.7}
-            clearcoat={1}
-            color="#dd1F1F"
+            // metalness={0.7}
+            // clearcoat={1}
+            // color="#dd1F1F"
+
+            matcap={map}
           />
         </instancedMesh>
       </InstancedRigidBodies>

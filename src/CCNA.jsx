@@ -1,8 +1,9 @@
 import { useGLTF } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
+import CCNAObj from './assets/CCNA.glb';
 
 export default function CCNA() {
-  const CCNA = useGLTF('./CCNA.glb');
+  const myObj = useGLTF(CCNAObj);
   return (
     <RigidBody
       restitution={10}
@@ -12,7 +13,7 @@ export default function CCNA() {
       position={[-20, -5.2, -26]}
       colliders="cuboid"
     >
-      <primitive object={CCNA.scene} scale={0.25} />
+      <primitive object={myObj.scene} scale={0.25} />
     </RigidBody>
   );
 }

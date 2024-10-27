@@ -1,8 +1,9 @@
 import { useGLTF } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
+import LinkedInObj from './assets/linkedin.glb';
 
 export default function Linkedin() {
-  const linkedIn = useGLTF('./linkedin.glb');
+  const linkedIn = useGLTF(LinkedInObj);
   return (
     <RigidBody
       restitution={10}
