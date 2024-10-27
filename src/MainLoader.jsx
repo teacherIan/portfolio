@@ -7,7 +7,7 @@ import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 
 export default function MainLoader({ xOffset }) {
-  const [map] = useMatcapTexture(40); //31 40
+  const [map] = useMatcapTexture('36220C_C6C391_8C844A_8B7B4C'); //31 40 45
   const cubesCount = 500; //480
   const instances = useMemo(() => {
     const instances = [];
@@ -44,7 +44,6 @@ export default function MainLoader({ xOffset }) {
             // metalness={0.7}
             // clearcoat={1}
             // color="#dd1F1F"
-
             matcap={map}
           />
         </instancedMesh>
