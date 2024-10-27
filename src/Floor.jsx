@@ -12,17 +12,16 @@ export default function Floor() {
       >
         <planeGeometry />
         <MeshReflectorMaterial
-          transparent
           // blur={[30, 30]}
           resolution={2046}
           mixBlur={1}
           mixStrength={100}
-          roughness={0.8}
+          roughness={1}
           depthScale={6}
           minDepthThreshold={0.4}
           maxDepthThreshold={1.4}
           color="#050505"
-          metalness={1}
+          metalness={0.0}
           opacity={1}
         />
       </mesh>
