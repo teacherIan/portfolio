@@ -3,7 +3,7 @@ import { MeshReflectorMaterial } from '@react-three/drei';
 
 export default function Floor() {
   return (
-    <RigidBody type="fixed">
+    <RigidBody type="fixed" restitution={0.3}>
       <mesh
         receiveShadow
         position-y={-9.3}
@@ -14,12 +14,12 @@ export default function Floor() {
         <MeshReflectorMaterial
           // blur={[30, 30]}
           resolution={2046}
-          mixBlur={1}
-          mixStrength={100}
+          mixBlur={10}
+          mixStrength={150}
           roughness={1}
           depthScale={6}
           minDepthThreshold={0.4}
-          maxDepthThreshold={1.4}
+          maxDepthThreshold={1}
           color="#050505"
           metalness={0.0}
           opacity={1}

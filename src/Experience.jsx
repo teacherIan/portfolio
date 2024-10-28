@@ -4,17 +4,26 @@ import Lights from './Lights';
 import Floor from './Floor';
 import FullScene from './FullScene';
 import MainLoader from './MainLoader';
-import Cissp from './Cissp';
-import CCNA from './CCNA';
-import Aws from './Aws';
-import CertText from './CertText';
-import Linkedin from './Linkedin';
+import Cissp from './certs/Cissp';
+import CCNA from './certs/CCNA';
+import Aws from './certs/Aws';
+import CertText from './text/CertText';
+import Linkedin from './contact/Linkedin';
+import ContactText from './text/ContactText';
+import GitHub from './contact/Github';
+import Google from './contact/Google';
+import GitHubMesh from './contactAsMesh/GitHubMesh';
+import GoogleAsMesh from './contactAsMesh/GoogleAsMesh';
+import LinkedinAsMesh from './contactAsMesh/LinkedinAsMesh';
+import ProjectsText from './text/ProjectsText';
+import SplatComponent from './SplatComponent';
+import Dfw from './Dfw';
 
 export default function Experience() {
   return (
     <>
       {/* <Sky /> */}
-      <Physics debug={false} gravity={[0, -9, 0]}>
+      <Physics debug={false} gravity={[0, -10, 0]}>
         <FullScene />
         <OrbitControls makeDefault />
         <Lights />
@@ -23,9 +32,15 @@ export default function Experience() {
         <Cissp />
         <CCNA />\
         <Aws />
-        <Linkedin />
+        <GoogleAsMesh />
+        <GitHubMesh />
+        <LinkedinAsMesh />
+        <ProjectsText />
+        <Dfw />
       </Physics>
       <CertText />
+      <ContactText />
+      {/* <SplatComponent /> */}
     </>
   );
 }

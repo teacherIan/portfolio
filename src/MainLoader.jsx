@@ -6,12 +6,13 @@ import { TextureLoader } from 'three';
 import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import mapImport from './assets/map.png';
+import trialImport from './assets/trialMap.jpg';
 
 export default function MainLoader({ xOffset }) {
-  // const [map] = useMatcapTexture(mapImport); //31 40 45
-  const matcapTexture = useLoader(TextureLoader, mapImport); // Update with your matcap path
+  const [matcapTexture] = useMatcapTexture('D04444_AF2F2F_8B2424_9B2C2C'); //31 40 45
+  // const matcapTexture = useLoader(TextureLoader, trialImport); // Update with your matcap path
 
-  const cubesCount = 500; //480
+  const cubesCount = 520; //480
   const instances = useMemo(() => {
     const instances = [];
 
@@ -36,7 +37,7 @@ export default function MainLoader({ xOffset }) {
   return (
     <>
       <InstancedRigidBodies
-        restitution={0.5}
+        restitution={0.1}
         instances={instances}
         colliders="ball"
       >
