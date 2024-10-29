@@ -1,6 +1,7 @@
 import { useGLTF } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
 import CCNAObj from '../assets/CCNA.glb';
+import { Outlines } from '@react-three/drei';
 
 export default function CCNA() {
   const myObj = useGLTF(CCNAObj);

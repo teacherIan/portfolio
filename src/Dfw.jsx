@@ -1,10 +1,10 @@
 import { useGLTF } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
-import GitHubObj from '../src/assets/table_new.glb';
+import tableObj from '../src/assets/table_new.glb';
 import { Suspense } from 'react';
 
 export default function Dfw() {
-  const github = useGLTF(GitHubObj);
+  const table = useGLTF(tableObj);
   return (
     <RigidBody
       restitution={0.5}
@@ -21,7 +21,7 @@ export default function Dfw() {
           <meshNormalMaterial />
         </mesh>
       >
-        <primitive object={github.scene} scale={2} />
+        <primitive object={table.scene} scale={2} />
       </Suspense>
     </RigidBody>
   );

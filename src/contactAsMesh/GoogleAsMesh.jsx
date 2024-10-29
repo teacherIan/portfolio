@@ -1,15 +1,20 @@
 import { useGLTF } from '@react-three/drei';
 import googleModel from '../assets/google.glb';
 import { RigidBody } from '@react-three/rapier';
-import { Outlines } from '@react-three/drei';
+import { Outlines, useCursor } from '@react-three/drei';
+import { useState } from 'react';
 
 export default function GitHubMesh(props) {
+  const [hovered, set] = useState(false);
+  useCursor(hovered);
+  const handleClick = () => {
+    window.open('https://github.com/teacherIan', '_blank');
+  };
+
   const { nodes, materials } = useGLTF(googleModel);
   return (
     <RigidBody
       restitution={0.5}
-      // friction={1}
-      //   rotation={[0, Math.PI * -1.1, 0]}
       type="dynamic"
       scale={2}
       position={[12, 5, -45]}
@@ -28,7 +33,13 @@ export default function GitHubMesh(props) {
                 receiveShadow
                 geometry={nodes.Cylinder009.geometry}
                 material={materials['glossy putih.002']}
-              />
+                onPointerOver={() => set(true)}
+                onPointerOut={() => set(false)}
+              >
+                {' '}
+                <Outlines thickness={hovered ? 5 : 0} color="lightblue" />
+              </mesh>
+
               <mesh
                 castShadow
                 receiveShadow
@@ -52,7 +63,7 @@ export default function GitHubMesh(props) {
                 receiveShadow
                 geometry={nodes.Cylinder009_4.geometry}
                 material={materials['google 1 GLOS']}
-              />
+              ></mesh>
             </group>
           </group>
         </group>
