@@ -12,7 +12,7 @@ export default function MainLoader({ xOffset }) {
   const [matcapTexture] = useMatcapTexture('D04444_AF2F2F_8B2424_9B2C2C'); //31 40 45
   // const matcapTexture = useLoader(TextureLoader, trialImport); // Update with your matcap path
 
-  const cubesCount = 520; //480
+  const cubesCount = 540; //480
   const instances = useMemo(() => {
     const instances = [];
 
@@ -42,7 +42,7 @@ export default function MainLoader({ xOffset }) {
         colliders="ball"
       >
         <instancedMesh castShadow args={[null, null, cubesCount]}>
-          <sphereGeometry args={[1.6]} />
+          <sphereGeometry args={[1.55]} />
           <meshMatcapMaterial
             // iridescence={1}
             // metalness={0.7}

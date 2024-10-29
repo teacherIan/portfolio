@@ -7,10 +7,10 @@ export default function Cissp() {
   return (
     <RigidBody
       restitution={0.3}
-      rotation={[-Math.PI / 2, Math.PI, (Math.PI / 7) * 1.1]}
+      rotation={[-Math.PI / 2, Math.PI, (Math.PI / 7) * 0.9]}
       type="dynamic"
       scale={30}
-      position={[-27, 5, -22]}
+      position={[-25, 5, -22]}
       colliders="cuboid"
     >
       <primitive object={mesh.scene} scale={0.25} />

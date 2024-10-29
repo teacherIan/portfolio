@@ -8,7 +8,8 @@ export default function GitHubMesh(props) {
   const [hovered, set] = useState(false);
   useCursor(hovered);
   const handleClick = () => {
-    window.open('https://github.com/teacherIan', '_blank');
+    // window.open(
+    // );
   };
 
   const { nodes, materials } = useGLTF(googleModel);
@@ -35,8 +36,8 @@ export default function GitHubMesh(props) {
                 material={materials['glossy putih.002']}
                 onPointerOver={() => set(true)}
                 onPointerOut={() => set(false)}
+                onClick={handleClick}
               >
-                {' '}
                 <Outlines thickness={hovered ? 5 : 0} color="lightblue" />
               </mesh>
 
