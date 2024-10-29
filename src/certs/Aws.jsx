@@ -7,7 +7,7 @@ export default function Aws() {
   return (
     <RigidBody
       restitution={1}
-      rotation={[Math.PI / 2, 0, Math.PI * 1.2]}
+      rotation={[Math.PI / 2, 0, Math.PI * 1.3]}
       type="dynamic"
       scale={30}
       position={[-37, 2, -35]}

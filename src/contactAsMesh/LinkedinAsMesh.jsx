@@ -11,12 +11,12 @@ export default function GitHubMesh(props) {
       // friction={1}
       //   rotation={[0, Math.PI * -1.1, 0]}
       type="dynamic"
-      scale={3}
+      scale={2}
       position={[27, 5, -45]}
       colliders="cuboid"
     >
       <group {...props} dispose={null}>
-        <group position={[0, 3, 6]} rotation={[0, Math.PI, 0]} scale={0.843}>
+        <group position={[0, 3, 6]} rotation={[0, Math.PI, 0]} scale={2}>
           <mesh
             castShadow
             receiveShadow

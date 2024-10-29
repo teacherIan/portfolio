@@ -5,7 +5,7 @@ export default function ProjectsText() {
     <Text
       rotation={[Math.PI / 2, Math.PI, -Math.PI / 10]}
       scale={5}
-      position={[50, -9.2, -25]}
+      position={[50, -9.25, -25]}
       color="white"
       anchorX="center"
       anchorY="middle"

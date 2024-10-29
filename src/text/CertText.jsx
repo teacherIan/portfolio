@@ -5,7 +5,7 @@ export default function CertText() {
     <Text
       rotation={[Math.PI / 2, Math.PI, -Math.PI / 10]}
       scale={5}
-      position={[-25, -9.2, -38]}
+      position={[-25, -9.25, -38]}
       color="white"
       anchorX="center"
       anchorY="middle"

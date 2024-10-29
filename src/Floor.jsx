@@ -21,7 +21,7 @@ export default function Floor() {
           minDepthThreshold={0.4}
           maxDepthThreshold={1}
           color="#050505"
-          metalness={0.0}
+          metalness={0.5}
           opacity={1}
         />
       </mesh>

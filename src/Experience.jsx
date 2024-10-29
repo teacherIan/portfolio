@@ -18,11 +18,13 @@ import LinkedinAsMesh from './contactAsMesh/LinkedinAsMesh';
 import ProjectsText from './text/ProjectsText';
 import SplatComponent from './SplatComponent';
 import Dfw from './Dfw';
+import Ball from './ball/Ball';
 
 export default function Experience() {
   return (
     <>
       {/* <Sky /> */}
+
       <Physics debug={false} gravity={[0, -10, 0]}>
         <FullScene />
         <OrbitControls makeDefault />
@@ -37,7 +39,9 @@ export default function Experience() {
         <LinkedinAsMesh />
         <ProjectsText />
         <Dfw />
+        <Ball />
       </Physics>
+
       <CertText />
       <ContactText />
       {/* <SplatComponent /> */}

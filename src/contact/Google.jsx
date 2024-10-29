@@ -10,11 +10,11 @@ export default function Google() {
       restitution={0.5}
       rotation={[0, Math.PI * -1.2, 0]}
       type="dynamic"
-      scale={10}
-      position={[15, -0, -44]}
+      scale={15}
+      position={[15, -0, -50]}
       colliders="cuboid"
     >
-      <primitive object={google.scene} scale={0.25} />
+      <primitive object={google.scene} scale={1} />
     </RigidBody>
   );
 }

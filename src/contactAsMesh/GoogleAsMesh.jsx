@@ -12,11 +12,11 @@ export default function GitHubMesh(props) {
       //   rotation={[0, Math.PI * -1.1, 0]}
       type="dynamic"
       scale={2}
-      position={[20, 5, -30]}
+      position={[12, 5, -45]}
       colliders="cuboid"
     >
       <group {...props} dispose={null}>
-        <group rotation={[Math.PI / 2, Math.PI, 0]} scale={1}>
+        <group rotation={[Math.PI / 2, Math.PI, 0]} scale={2}>
           <group {...props} dispose={null}>
             <group
               position={[0, 3, 6]}

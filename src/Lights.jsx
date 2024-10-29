@@ -15,7 +15,7 @@ export default function Lights() {
         shadow-camera-bottom={-300} // Bottom plane
       />
 
-      <ambientLight intensity={1} />
+      <ambientLight intensity={1.5} />
     </>
   );
 }
