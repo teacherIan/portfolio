@@ -16,8 +16,8 @@ root.render(
       near: 1,
       far: 2000,
       position: [
-        window.innerWidth < 1400 ? -50 : 50,
-        window.innerWidth < 1400 ? 30 : 60,
+        window.innerWidth < 1400 ? -50 : 30,
+        window.innerWidth < 1400 ? 30 : 80,
         window.innerWidth < 1400 ? -120 : -110,
       ],
     }}
