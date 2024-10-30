@@ -31,7 +31,7 @@ export default function Dfw() {
           onPointerOut={() => set(false)}
           onClick={handleClick}
         >
-          <Outlines thickness={hovered ? 5 : 0} color="white" />
+          <Outlines thickness={hovered ? 5 : 2} color="white" />
         </mesh>
       </group>
       {/* <primitive object={table.scene} scale={2} /> */}

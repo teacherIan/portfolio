@@ -5,24 +5,25 @@ export default function Floor() {
   return (
     <RigidBody type="fixed" restitution={0.3}>
       <mesh
-        receiveShadow
+        // receiveShadow
         position-y={-9.3}
         rotation-x={-Math.PI * 0.5}
-        scale={1000}
+        // scale={400}
       >
-        <planeGeometry />
+        <planeGeometry args={[1000, 1000]} />
         <MeshReflectorMaterial
           // blur={[30, 30]}
           resolution={2046}
-          mixBlur={10}
-          mixStrength={150}
+          mixBlur={150}
+          mixStrength={5}
           roughness={1}
           depthScale={6}
           minDepthThreshold={0.4}
           maxDepthThreshold={1}
-          color="#050505"
-          metalness={0.5}
+          color="#4d8d9d"
+          metalness={1}
           opacity={1}
+          // map={texture}
         />
       </mesh>
     </RigidBody>

@@ -5,7 +5,7 @@ import restart from 'vite-plugin-restart';
 export default {
   root: 'src/',
   publicDir: '../public/',
-  assetsInclude: ['**/*.glb', '**/*.JPG', '**/*.splat'],
+  assetsInclude: ['**/*.glb', '**/*.JPG', '**/*.splat', '**/*.exr'],
   plugins: [
     // Restart server on static/public file change
 

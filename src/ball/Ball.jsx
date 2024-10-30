@@ -27,15 +27,7 @@ export default function Ball() {
         >
           <Outlines thickness={hovered ? 5 : 0} color="white" />
           <sphereGeometry args={[5]} />
-          <meshPhysicalMaterial
-            transparent
-            map={texture}
-            roughness={100}
-            //   roughnessMap={roughnessMap}
-            //   normalMap={normalMap}
-            normalScale={new Vector2(10, 10)}
-            opacity={1}
-          />
+          <meshStandardMaterial wireframe />
         </mesh>
       </RigidBody>
     </>
