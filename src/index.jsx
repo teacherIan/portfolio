@@ -2,6 +2,9 @@ import './style.css';
 import ReactDOM from 'react-dom/client';
 import { Canvas } from '@react-three/fiber';
 import Experience from './Experience.jsx';
+import { Suspense } from 'react';
+
+import Loading from './text/Loading';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
 
@@ -19,6 +22,8 @@ root.render(
       ],
     }}
   >
-    <Experience />
+    <Suspense fallback={<Loading />}>
+      <Experience />
+    </Suspense>
   </Canvas>
 );

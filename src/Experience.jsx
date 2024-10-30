@@ -23,8 +23,6 @@ import Ball from './ball/Ball';
 export default function Experience() {
   return (
     <>
-      {/* <Sky /> */}
-
       <Physics debug={false} gravity={[0, -10, 0]}>
         <FullScene />
         <OrbitControls makeDefault />
@@ -44,7 +42,6 @@ export default function Experience() {
 
       <CertText />
       <ContactText />
-      {/* <SplatComponent /> */}
     </>
   );
 }

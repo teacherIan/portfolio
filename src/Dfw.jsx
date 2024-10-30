@@ -13,30 +13,28 @@ export default function Dfw() {
 
   const { nodes, materials } = useGLTF(tableObj);
   return (
-    <Suspense fallback={<Text>Hello</Text>}>
-      <RigidBody
-        restitution={0.5}
-        rotation={[0, Math.PI * -1.1, 0]}
-        type="dynamic"
-        scale={25}
-        position={[62, 10, -20]}
-        colliders="cuboid"
-      >
-        <group dispose={null}>
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh_0.geometry}
-            material={materials['Material_0.001']}
-            onPointerOver={() => set(true)}
-            onPointerOut={() => set(false)}
-            onClick={handleClick}
-          >
-            <Outlines thickness={hovered ? 5 : 0} color="white" />
-          </mesh>
-        </group>
-        {/* <primitive object={table.scene} scale={2} /> */}
-      </RigidBody>
-    </Suspense>
+    <RigidBody
+      restitution={0.5}
+      rotation={[0, Math.PI * -1.1, 0]}
+      type="dynamic"
+      scale={25}
+      position={[62, 10, -20]}
+      colliders="cuboid"
+    >
+      <group dispose={null}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mesh_0.geometry}
+          material={materials['Material_0.001']}
+          onPointerOver={() => set(true)}
+          onPointerOut={() => set(false)}
+          onClick={handleClick}
+        >
+          <Outlines thickness={hovered ? 5 : 0} color="white" />
+        </mesh>
+      </group>
+      {/* <primitive object={table.scene} scale={2} /> */}
+    </RigidBody>
   );
 }
