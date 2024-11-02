@@ -12,9 +12,10 @@ export default function Floor() {
       >
         <planeGeometry args={[1000, 1000]} />
         <MeshReflectorMaterial
+          transparent
           // blur={[30, 30]}
           resolution={2046}
-          mixBlur={150}
+          mixBlur={500}
           mixStrength={5}
           roughness={1}
           depthScale={6}
@@ -22,7 +23,7 @@ export default function Floor() {
           maxDepthThreshold={1}
           color="#4d8d9d"
           metalness={1}
-          opacity={1}
+          opacity={0.7}
           // map={texture}
         />
       </mesh>

@@ -16,7 +16,6 @@ import GitHubMesh from './contactAsMesh/GitHubMesh';
 import GoogleAsMesh from './contactAsMesh/GoogleAsMesh';
 import LinkedinAsMesh from './contactAsMesh/LinkedinAsMesh';
 import ProjectsText from './text/ProjectsText';
-import SplatComponent from './SplatComponent';
 import Dfw from './Dfw';
 import Ball from './ball/Ball';
 
@@ -39,7 +38,6 @@ export default function Experience() {
         <Dfw />
         <Ball />
       </Physics>
-
       <CertText />
       <ContactText />
     </>
