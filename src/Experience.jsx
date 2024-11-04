@@ -21,7 +21,7 @@ import Ball from './ball/Ball';
 import Cannon from './Shooter/Cannon';
 import Pins from './bowling/Pins';
 import Pin from './bowling/Pin';
-import BookShelf from './Bookshelf';
+import BookShelf from './BookShelf';
 
 export default function Experience() {
   return (
