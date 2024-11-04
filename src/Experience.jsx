@@ -18,19 +18,28 @@ import LinkedinAsMesh from './contactAsMesh/LinkedinAsMesh';
 import ProjectsText from './text/ProjectsText';
 import Dfw from './Dfw';
 import Ball from './ball/Ball';
+import Cannon from './Shooter/Cannon';
+import Pins from './bowling/Pins';
+import Pin from './bowling/Pin';
+import BookShelf from './Bookshelf';
 
 export default function Experience() {
   return (
     <>
       <Physics debug={false} gravity={[0, -10, 0]}>
+        <Pins />
+        {/* <Cannon /> */}
+        <BookShelf loc={[0, 0, -50]} />
+
+        <BookShelf loc={[10, 0, -50]} />
         <FullScene />
         <OrbitControls makeDefault />
         <Lights />
         <Floor />
         <MainLoader />
-        <Cissp />
-        <CCNA />\
-        <Aws />
+        {/* <Cissp /> */}
+        {/* <CCNA /> */}
+        {/* <Aws /> */}
         <GoogleAsMesh />
         <GitHubMesh />
         <LinkedinAsMesh />
