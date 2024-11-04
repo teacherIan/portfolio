@@ -11,8 +11,8 @@ export default function BookShelf({ loc }) {
         colliders="cuboid"
         type="dynamic"
         position={loc}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={5}
+        rotation={[Math.PI / 2, 0, Math.PI / 3]}
+        scale={10}
       >
         <group>
           <mesh

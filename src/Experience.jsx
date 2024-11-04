@@ -29,9 +29,8 @@ export default function Experience() {
       <Physics debug={false} gravity={[0, -10, 0]}>
         <Pins />
         {/* <Cannon /> */}
-        <BookShelf loc={[0, 0, -50]} />
-
-        <BookShelf loc={[10, 0, -50]} />
+        <BookShelf loc={[-45, 0, -30]} />
+        {/* <BookShelf loc={[-45, 0, -50]} /> */}
         <FullScene />
         <OrbitControls makeDefault />
         <Lights />
