@@ -22,6 +22,7 @@ import Cannon from './Shooter/Cannon';
 import Pins from './bowling/Pins';
 import Pin from './bowling/Pin';
 import BookShelf from './BookShelf';
+import ControlsText from './text/controlsText/ControlsText';
 
 export default function Experience() {
   return (
@@ -39,6 +40,7 @@ export default function Experience() {
         {/* <Cissp /> */}
         {/* <CCNA /> */}
         {/* <Aws /> */}
+        <ControlsText />
         <GoogleAsMesh />
         <GitHubMesh />
         <LinkedinAsMesh />
