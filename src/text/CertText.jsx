@@ -10,7 +10,7 @@ export default function CertText() {
       anchorX="center"
       anchorY="middle"
     >
-      Certifications
+      {'Certifications\nCISSP\nCCNA\nAWS Solutions Architect\nSecurity+ '}
     </Text>
   );
 }
