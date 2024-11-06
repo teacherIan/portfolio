@@ -15,7 +15,7 @@ export default function App() {
           position: [
             window.innerWidth < 1400 ? -50 : 30,
             window.innerWidth < 1400 ? 30 : 70,
-            window.innerWidth < 1400 ? -120 : -170,
+            window.innerWidth < 1400 ? -120 : -180,
           ],
         }}
       >
