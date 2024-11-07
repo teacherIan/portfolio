@@ -12,7 +12,7 @@ export default function fullScene() {
         rotation={[Math.PI / 2, 0, 0]}
         type="fixed"
         position={[40, -9.5, 0]}
-        colliders="hull"
+        colliders="cuboid"
       >
         <primitive object={I.scene} scale={0.25} />
       </RigidBody>

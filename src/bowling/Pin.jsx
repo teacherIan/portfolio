@@ -8,8 +8,13 @@ export default function Pin({ loc }) {
   const { nodes, materials } = useGLTF(bowlingPinObj);
   return (
     <group dispose={null}>
-      <RigidBody colliders="hull" type="dynamic" position={loc}>
-        <group rotation={[-Math.PI / 2, 0, 0]} scale={30}>
+      <RigidBody
+        colliders="cuboid"
+        position={loc}
+        scale={30}
+        rotation={[-Math.PI / 2, 0, 0]}
+      >
+        <group>
           <mesh
             castShadow
             receiveShadow

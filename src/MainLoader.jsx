@@ -10,7 +10,7 @@ import trialImport from './assets/trialMap.jpg';
 import * as RAPIER from '@react-three/rapier';
 
 export default function MainLoader({ xOffset }) {
-  const cubesCount = 550; //480
+  const cubesCount = 700; //480
   const rigidBodies = useRef();
   const rapier = useRapier();
   const meshes = useRef();
@@ -50,7 +50,7 @@ export default function MainLoader({ xOffset }) {
         ref={rigidBodies}
       >
         <instancedMesh ref={meshes} castShadow args={[null, null, cubesCount]}>
-          <sphereGeometry args={[1.55]} />
+          <sphereGeometry args={[1.6]} />
           <meshMatcapMaterial color={'#ffffff'} />
         </instancedMesh>
       </InstancedRigidBodies>
