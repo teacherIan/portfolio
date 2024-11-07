@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import Experience from './Experience.jsx';
 import { Suspense, useState, useEffect } from 'react';
-import { KeyboardControls } from '@react-three/drei';
+import { KeyboardControls, Grid } from '@react-three/drei';
 
 import Loading from './Loading.jsx';
 
@@ -10,7 +10,7 @@ export default function App() {
     <>
       <Canvas
         camera={{
-          fov: window.innerWidth < 1400 ? 70 : 40,
+          fov: window.innerWidth < 1400 ? 70 : 35,
           near: 1,
           far: 2000,
           position: [

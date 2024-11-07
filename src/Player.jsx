@@ -51,10 +51,10 @@ export default function Player() {
       ref={bodyRef}
       canSleep={false}
       colliders="ball"
-      restitution={0.5}
+      restitution={0}
       friction={0}
-      linearDamping={0.5}
-      angularDamping={0.5}
+      linearDamping={0}
+      angularDamping={0}
       position={[22, 100, -68]}
       scale={10}
     >

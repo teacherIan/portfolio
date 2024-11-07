@@ -1,4 +1,10 @@
-import { useGLTF, OrbitControls, Sky, SoftShadows } from '@react-three/drei';
+import {
+  useGLTF,
+  OrbitControls,
+  Sky,
+  SoftShadows,
+  Grid,
+} from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import Lights from './Lights';
 import Floor from './Floor';
@@ -24,6 +30,19 @@ import Pin from './bowling/Pin';
 import BookShelf from './BookShelf';
 import ControlsText from './text/controlsText/ControlsText';
 import Player from './Player';
+
+const gridOptions = {
+  cellSize: { value: 5, min: 0, max: 10, step: 0.1 },
+  cellThickness: { value: 10, min: 0, max: 10, step: 0.1 },
+  cellColor: '#6f6f6f',
+  sectionSize: { value: 3.3, min: 0, max: 10, step: 0.1 },
+  sectionThickness: { value: 1.5, min: 0, max: 5, step: 0.1 },
+  sectionColor: '#9d4b4b',
+  fadeDistance: { value: 25, min: 0, max: 100, step: 1 },
+  fadeStrength: { value: 1, min: 0, max: 1, step: 0.1 },
+  // followCamera: false,
+  infiniteGrid: true,
+};
 
 export default function Experience() {
   return (
@@ -52,6 +71,17 @@ export default function Experience() {
       </Physics>
       <CertText />
       <ContactText />
+      <Grid
+        position={[0, -9, 0]}
+        args={[50, 50]}
+        cellColor="white"
+        cellThickness={1}
+        infiniteGrid
+        fadeDistance={500}
+        sectionSize={100}
+        cellSize={50}
+        sectionColor={'#ffffff'}
+      />
     </>
   );
 }
