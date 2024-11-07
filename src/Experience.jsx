@@ -47,7 +47,7 @@ const gridOptions = {
 export default function Experience() {
   return (
     <>
-      <Physics debug={false} gravity={[0, -12, 0]}>
+      <Physics debug={false} gravity={[0, -20, 0]}>
         <Player />
         <Pins />
         {/* <Cannon /> */}
