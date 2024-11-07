@@ -23,14 +23,16 @@ import Pins from './bowling/Pins';
 import Pin from './bowling/Pin';
 import BookShelf from './BookShelf';
 import ControlsText from './text/controlsText/ControlsText';
+import Player from './Player';
 
 export default function Experience() {
   return (
     <>
-      <Physics debug={false} gravity={[0, -10, 0]}>
+      <Physics debug={false} gravity={[0, -12, 0]}>
+        <Player />
         <Pins />
         {/* <Cannon /> */}
-        <BookShelf loc={[-45, 0, -30]} />
+        <BookShelf loc={[-45, 0, -45]} />
         {/* <BookShelf loc={[-45, 0, -50]} /> */}
         <FullScene />
         <OrbitControls makeDefault />

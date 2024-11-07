@@ -2,6 +2,22 @@ import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import bookShelfObj from './assets/bookShelf.glb';
 import { RigidBody } from '@react-three/rapier';
+import * as THREE from 'three';
+
+const material = new THREE.MeshStandardMaterial({
+  color: 'lightblue',
+  metalness: 0.0,
+  roughness: 1,
+});
+
+const materialTwo = new THREE.MeshPhysicalMaterial({
+  color: 'lightblue',
+  metalness: 0.0,
+  roughness: 1,
+
+  clearcoat: 1,
+  clearcoatRoughness: 0,
+});
 
 export default function BookShelf({ loc }) {
   const { nodes, materials } = useGLTF(bookShelfObj);
@@ -15,10 +31,7 @@ export default function BookShelf({ loc }) {
         scale={10}
       >
         <group>
-          <mesh
-            geometry={nodes.Cube030.geometry}
-            material={materials['BrownDark.045']}
-          />
+          <mesh geometry={nodes.Cube030.geometry} material={material} />
           <mesh
             geometry={nodes.Cube030_1.geometry}
             material={materials['PurpleDark.001']}

@@ -27,7 +27,7 @@ export default function Ball() {
         >
           <Outlines thickness={hovered ? 5 : 0} color="white" />
           <sphereGeometry args={[5]} />
-          <meshStandardMaterial wireframe />
+          <meshStandardMaterial wireframe color={'lightblue'} />
         </mesh>
       </RigidBody>
     </>

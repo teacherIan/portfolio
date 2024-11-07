@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import Experience from './Experience.jsx';
 import { Suspense, useState, useEffect } from 'react';
+import { KeyboardControls } from '@react-three/drei';
 
 import Loading from './Loading.jsx';
 
@@ -14,14 +15,24 @@ export default function App() {
           far: 2000,
           position: [
             window.innerWidth < 1400 ? -50 : 30,
-            window.innerWidth < 1400 ? 30 : 70,
-            window.innerWidth < 1400 ? -120 : -180,
+            window.innerWidth < 1400 ? 30 : 100,
+            window.innerWidth < 1400 ? -120 : -200,
           ],
         }}
       >
         <fog attach="fog" args={['#50747c', 100, 500]} />
         <Suspense fallback={<Loading />}>
-          <Experience />
+          <KeyboardControls
+            map={[
+              { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
+              { name: 'backward', keys: ['ArrowDown', 'KeyS'] },
+              { name: 'leftward', keys: ['ArrowLeft', 'KeyA'] },
+              { name: 'rightward', keys: ['ArrowRight', 'KeyD'] },
+              { name: 'jump', keys: ['Space'] },
+            ]}
+          >
+            <Experience />
+          </KeyboardControls>
         </Suspense>
       </Canvas>
     </>

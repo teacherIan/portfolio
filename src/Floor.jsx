@@ -1,9 +1,13 @@
-import { RigidBody } from '@react-three/rapier';
+import { RigidBody, interactionGroups } from '@react-three/rapier';
 import { MeshReflectorMaterial } from '@react-three/drei';
 
 export default function Floor() {
   return (
-    <RigidBody type="fixed" restitution={0.3}>
+    <RigidBody
+      collisionGroups={interactionGroups([1, 2], [1, 2])}
+      type="fixed"
+      restitution={0.3}
+    >
       <mesh
         // receiveShadow
         position-y={-9.3}

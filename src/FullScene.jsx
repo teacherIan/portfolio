@@ -1,5 +1,5 @@
 import { useGLTF } from '@react-three/drei';
-import { RigidBody } from '@react-three/rapier';
+import { RigidBody, interactionGroups } from '@react-three/rapier';
 import scene from '../src/assets/scene.glb';
 export default function fullScene() {
   const I = useGLTF(scene);
@@ -7,6 +7,7 @@ export default function fullScene() {
   return (
     <>
       <RigidBody
+        collisionGroups={interactionGroups([2], [2])}
         restitution={0}
         rotation={[Math.PI / 2, 0, 0]}
         type="fixed"
