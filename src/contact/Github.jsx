@@ -1,11 +1,12 @@
 import { useGLTF } from '@react-three/drei';
-import { RigidBody } from '@react-three/rapier';
+import { RigidBody, interactionGroups } from '@react-three/rapier';
 import GitHubObj from '../assets/github.glb';
 
 export default function GitHub() {
   const github = useGLTF(GitHubObj);
   return (
     <RigidBody
+      collisionGroups={interactionGroups([1], [1])}
       restitution={1}
       rotation={[0, Math.PI * -1.1, 0]}
       type="dynamic"

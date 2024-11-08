@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import bookShelfObj from './assets/bookShelf.glb';
-import { RigidBody } from '@react-three/rapier';
+import { RigidBody, interactionGroups } from '@react-three/rapier';
 import * as THREE from 'three';
 
 const material = new THREE.MeshStandardMaterial({
@@ -14,7 +14,6 @@ const materialTwo = new THREE.MeshPhysicalMaterial({
   color: 'lightblue',
   metalness: 0.0,
   roughness: 1,
-
   clearcoat: 1,
   clearcoatRoughness: 0,
 });
@@ -24,6 +23,7 @@ export default function BookShelf({ loc }) {
   return (
     <group dispose={null}>
       <RigidBody
+        collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
         type="dynamic"
         position={loc}

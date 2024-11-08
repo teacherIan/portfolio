@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { RigidBody } from '@react-three/rapier';
+import { RigidBody, interactionGroups } from '@react-three/rapier';
 import bowlingPinObj from '../assets/bowlingPin.glb';
 
 export default function Pin({ loc }) {
@@ -9,6 +9,7 @@ export default function Pin({ loc }) {
   return (
     <group dispose={null}>
       <RigidBody
+        collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
         position={loc}
         scale={30}

@@ -1,11 +1,12 @@
 import { useGLTF } from '@react-three/drei';
-import { RigidBody } from '@react-three/rapier';
+import { RigidBody, interactionGroups } from '@react-three/rapier';
 import LinkedInObj from '../assets/linkedin.glb';
 
 export default function Linkedin() {
   const linkedIn = useGLTF(LinkedInObj);
   return (
     <RigidBody
+      collisionGroups={interactionGroups([1], [1])}
       restitution={1}
       rotation={[0, Math.PI, 0]}
       type="dynamic"

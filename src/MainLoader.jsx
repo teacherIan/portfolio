@@ -50,7 +50,7 @@ export default function MainLoader({ xOffset }) {
         ref={rigidBodies}
       >
         <instancedMesh ref={meshes} castShadow args={[null, null, cubesCount]}>
-          <sphereGeometry args={[1.6]} />
+          <sphereGeometry args={[1.55]} />
           <meshMatcapMaterial color={'#ffffff'} />
         </instancedMesh>
       </InstancedRigidBodies>

@@ -1,5 +1,5 @@
 import { useGLTF } from '@react-three/drei';
-import { RigidBody } from '@react-three/rapier';
+import { RigidBody, interactionGroups } from '@react-three/rapier';
 import tableObj from '../src/assets/table_new.glb';
 import { Suspense, useState } from 'react';
 import { Outlines, useCursor, Text } from '@react-three/drei';
@@ -14,6 +14,7 @@ export default function Dfw() {
   const { nodes, materials } = useGLTF(tableObj);
   return (
     <RigidBody
+      collisionGroups={interactionGroups([1], [1])}
       restitution={0.5}
       rotation={[0, Math.PI * -1.1, 0]}
       type="dynamic"
