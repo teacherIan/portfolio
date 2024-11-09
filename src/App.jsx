@@ -59,7 +59,7 @@ export default function App() {
 
       <div className="container">
         <div
-          onTouchStart={(e) => handlePressStart(e, 'left')}
+          onTouchStart={() => handlePressStart('left')}
           onTouchEnd={() => handlePressEnd('left')}
           className="arrow"
         >
@@ -73,14 +73,14 @@ export default function App() {
           <PiArrowFatRightThin />
         </div>
         <div
-          onTouchStart={(e) => handlePressStart(e, 'up')}
+          onTouchStart={() => handlePressStart('up')}
           onTouchEnd={() => handlePressEnd('up')}
           className="arrow"
         >
           <PiArrowFatUpThin />
         </div>
         <div
-          onTouchStart={(e) => handlePressStart(e, 'down')}
+          onTouchStart={() => handlePressStart('down')}
           onTouchEnd={() => handlePressEnd('down')}
           className="arrow"
         >
