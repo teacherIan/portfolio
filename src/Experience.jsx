@@ -55,7 +55,7 @@ export default function Experience({
     <>
       <PresentationControls
         enabled={true} // the controls can be disabled by setting this to false
-        global={false} // Spin globally or by dragging the model
+        global={true} // Spin globally or by dragging the model
         cursor={true} // Whether to toggle cursor style on drag
         snap={{ mass: 4, tension: 100 }} // Snap-back to center (can also be a spring config)
         speed={0.1} // Speed factor
