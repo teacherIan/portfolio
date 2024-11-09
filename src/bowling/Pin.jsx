@@ -4,7 +4,6 @@ import { RigidBody, interactionGroups } from '@react-three/rapier';
 import bowlingPinObj from '../assets/bowlingPin.glb';
 
 export default function Pin({ loc }) {
-  console.log(loc + ' is loc');
   const { nodes, materials } = useGLTF(bowlingPinObj);
   return (
     <group dispose={null}>
