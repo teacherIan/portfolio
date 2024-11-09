@@ -19,8 +19,7 @@ export default function App() {
   const [upButtonState, setUpButtonState] = useState(false);
   const [downButtonState, setDownButtonState] = useState(false);
 
-  const handlePressStart = (e, direction) => {
-    // e.preventDefault();
+  const handlePressStart = (direction) => {
     switch (direction) {
       case 'left':
         setLeftButtonState(true);
@@ -67,7 +66,7 @@ export default function App() {
           <PiArrowFatLeftThin />
         </div>
         <div
-          onTouchStart={(e) => handlePressStart(e, 'right')}
+          onTouchStart={() => handlePressStart('right')}
           onTouchEnd={() => handlePressEnd('right')}
           className="arrow"
         >
