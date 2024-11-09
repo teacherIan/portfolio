@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html,
 body,
 #root {
@@ -20,11 +24,12 @@ canvas {
 }
 
 .container {
+    overflow: hidden;
     touch-action: manipulation;
     position: absolute;
     bottom: 0px;
     display: flex;
-    width: 100%;
+    width: 100svw;
     z-index: 1000;
     justify-content: space-between;
     align-items: center;
@@ -37,6 +42,7 @@ canvas {
 
 
 .arrow {
+    overflow: hidden;
     touch-action: manipulation;
     background-color: #50747c00;
     /* user-select: auto; */
@@ -50,8 +56,6 @@ canvas {
     border: 0px white solid;
     /* border-radius: 3px; */
     color: #50747c;
-
-
 }
 
 .left {}
