@@ -32,19 +32,6 @@ import BookShelf from './BookShelf';
 import ControlsText from './text/controlsText/ControlsText';
 import Player from './Player';
 
-const gridOptions = {
-  cellSize: { value: 5, min: 0, max: 10, step: 0.1 },
-  cellThickness: { value: 10, min: 0, max: 10, step: 0.1 },
-  cellColor: '#6f6f6f',
-  sectionSize: { value: 3.3, min: 0, max: 10, step: 0.1 },
-  sectionThickness: { value: 1.5, min: 0, max: 5, step: 0.1 },
-  sectionColor: '#9d4b4b',
-  fadeDistance: { value: 25, min: 0, max: 100, step: 1 },
-  fadeStrength: { value: 1, min: 0, max: 1, step: 0.1 },
-  // followCamera: false,
-  infiniteGrid: true,
-};
-
 export default function Experience({
   leftButtonState,
   rightButtonState,
