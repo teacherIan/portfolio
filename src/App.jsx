@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import Experience from './Experience.jsx';
 import { Suspense, useState, useEffect } from 'react';
-import { KeyboardControls, Grid } from '@react-three/drei';
+import { KeyboardControls, Grid, useDetectGPU } from '@react-three/drei';
 import { Leva } from 'leva';
 
 import {
@@ -14,6 +14,7 @@ import {
 import Loading from './Loading.jsx';
 
 export default function App() {
+  const useGPU = useDetectGPU();
   const [leftButtonState, setLeftButtonState] = useState(false);
   const [rightButtonState, setRightButtonState] = useState(false);
   const [upButtonState, setUpButtonState] = useState(false);
@@ -57,36 +58,39 @@ export default function App() {
     <>
       <Leva hidden />
 
-      <div className="container">
-        <div
-          onTouchStart={() => handlePressStart('left')}
-          onTouchEnd={() => handlePressEnd('left')}
-          className="arrow"
-        >
-          <PiArrowFatLeftThin />
+      {useGPU.isMobile ? (
+        <div className="container">
+          <div
+            onTouchStart={() => handlePressStart('left')}
+            onTouchEnd={() => handlePressEnd('left')}
+            className="arrow"
+          >
+            <PiArrowFatLeftThin />
+          </div>
+          <div
+            onTouchStart={() => handlePressStart('right')}
+            onTouchEnd={() => handlePressEnd('right')}
+            className="arrow"
+          >
+            <PiArrowFatRightThin />
+          </div>
+          <div
+            onTouchStart={() => handlePressStart('up')}
+            onTouchEnd={() => handlePressEnd('up')}
+            className="arrow"
+          >
+            <PiArrowFatUpThin />
+          </div>
+          <div
+            onTouchStart={() => handlePressStart('down')}
+            onTouchEnd={() => handlePressEnd('down')}
+            className="arrow"
+          >
+            <PiArrowFatDownThin />
+          </div>
         </div>
-        <div
-          onTouchStart={() => handlePressStart('right')}
-          onTouchEnd={() => handlePressEnd('right')}
-          className="arrow"
-        >
-          <PiArrowFatRightThin />
-        </div>
-        <div
-          onTouchStart={() => handlePressStart('up')}
-          onTouchEnd={() => handlePressEnd('up')}
-          className="arrow"
-        >
-          <PiArrowFatUpThin />
-        </div>
-        <div
-          onTouchStart={() => handlePressStart('down')}
-          onTouchEnd={() => handlePressEnd('down')}
-          className="arrow"
-        >
-          <PiArrowFatDownThin />
-        </div>
-      </div>
+      ) : null}
+
       <Canvas
         camera={{
           // 82
