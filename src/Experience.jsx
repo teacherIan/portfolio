@@ -1,4 +1,5 @@
 import {
+  PresentationControls,
   useGLTF,
   OrbitControls,
   Sky,
@@ -52,41 +53,55 @@ export default function Experience({
 }) {
   return (
     <>
-      <Physics debug={false} gravity={[0, -20, 0]}>
-        <Player
-          leftButtonState={leftButtonState}
-          rightButtonState={rightButtonState}
-          upButtonState={upButtonState}
-          downButtonState={downButtonState}
+      <PresentationControls
+        enabled={true} // the controls can be disabled by setting this to false
+        global={false} // Spin globally or by dragging the model
+        cursor={true} // Whether to toggle cursor style on drag
+        snap={{ mass: 4, tension: 100 }} // Snap-back to center (can also be a spring config)
+        speed={0.1} // Speed factor
+        zoom={1} // Zoom factor when half the polar-max is reached
+        rotation={[0, 0, 0]} // Default rotation
+        polar={[0, 0]} // Vertical limits
+        azimuth={[-Math.PI / 40, Math.PI / 40]} // Horizontal limits
+        config={{ mass: 1, tension: 170, friction: 26 }}
+      >
+        <Physics debug={false} gravity={[0, -20, 0]}>
+          <Player
+            leftButtonState={leftButtonState}
+            rightButtonState={rightButtonState}
+            upButtonState={upButtonState}
+            downButtonState={downButtonState}
+          />
+          <Pins />
+          <BookShelf loc={[-45, 0, -45]} />
+          <FullScene />
+          {/* <OrbitControls makeDefault /> */}
+
+          <Lights />
+          <Floor />
+          <MainLoader />
+          <ControlsText />
+          <GoogleAsMesh />
+          <GitHubMesh />
+          <LinkedinAsMesh />
+          <ProjectsText />
+          <Dfw />
+          <Ball />
+        </Physics>
+        <CertText />
+        <ContactText />
+        <Grid
+          position={[0, -9, 0]}
+          args={[50, 50]}
+          cellColor="white"
+          cellThickness={1}
+          infiniteGrid
+          fadeDistance={500}
+          sectionSize={100}
+          cellSize={50}
+          sectionColor={'#ffffff'}
         />
-        <Pins />
-        <BookShelf loc={[-45, 0, -45]} />
-        <FullScene />
-        <OrbitControls makeDefault />
-        <Lights />
-        <Floor />
-        <MainLoader />
-        <ControlsText />
-        <GoogleAsMesh />
-        <GitHubMesh />
-        <LinkedinAsMesh />
-        <ProjectsText />
-        <Dfw />
-        <Ball />
-      </Physics>
-      <CertText />
-      <ContactText />
-      <Grid
-        position={[0, -9, 0]}
-        args={[50, 50]}
-        cellColor="white"
-        cellThickness={1}
-        infiniteGrid
-        fadeDistance={500}
-        sectionSize={100}
-        cellSize={50}
-        sectionColor={'#ffffff'}
-      />
+      </PresentationControls>
     </>
   );
 }
