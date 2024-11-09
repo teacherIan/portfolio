@@ -13,6 +13,20 @@ import {
 
 import Loading from './Loading.jsx';
 
+// Prevent long press from showing context menu
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+});
+
+// Prevent touch events from showing share menu
+document.addEventListener(
+  'touchstart',
+  function (e) {
+    e.preventDefault();
+  },
+  { passive: false }
+);
+
 export default function App() {
   const [leftButtonState, setLeftButtonState] = useState(false);
   const [rightButtonState, setRightButtonState] = useState(false);
