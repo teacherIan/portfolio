@@ -58,7 +58,7 @@ export default function App() {
     <>
       <Leva hidden />
 
-      {!useGPU.isMobile ? (
+      {useGPU.isMobile ? (
         <div className="container">
           <div
             onTouchStart={() => handlePressStart('left')}
