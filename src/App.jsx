@@ -19,39 +19,39 @@ export default function App() {
   const [upButtonState, setUpButtonState] = useState(false);
   const [downButtonState, setDownButtonState] = useState(false);
 
-  // const handlePressStart = (direction) => {
-  //   switch (direction) {
-  //     case 'left':
-  //       setLeftButtonState(true);
-  //       break;
-  //     case 'right':
-  //       setRightButtonState(true);
-  //       break;
-  //     case 'up':
-  //       setUpButtonState(true);
-  //       break;
-  //     case 'down':
-  //       setDownButtonState(true);
-  //       break;
-  //   }
-  // };
+  const handlePressStart = (direction) => {
+    switch (direction) {
+      case 'left':
+        setLeftButtonState(true);
+        break;
+      case 'right':
+        setRightButtonState(true);
+        break;
+      case 'up':
+        setUpButtonState(true);
+        break;
+      case 'down':
+        setDownButtonState(true);
+        break;
+    }
+  };
 
-  // const handlePressEnd = (direction) => {
-  //   switch (direction) {
-  //     case 'left':
-  //       setLeftButtonState(false);
-  //       break;
-  //     case 'right':
-  //       setRightButtonState(false);
-  //       break;
-  //     case 'up':
-  //       setUpButtonState(false);
-  //       break;
-  //     case 'down':
-  //       setDownButtonState(false);
-  //       break;
-  //   }
-  // };
+  const handlePressEnd = (direction) => {
+    switch (direction) {
+      case 'left':
+        setLeftButtonState(false);
+        break;
+      case 'right':
+        setRightButtonState(false);
+        break;
+      case 'up':
+        setUpButtonState(false);
+        break;
+      case 'down':
+        setDownButtonState(false);
+        break;
+    }
+  };
 
   return (
     <>
