@@ -7,7 +7,7 @@ body,
 #root {
     overflow: hidden;
     overscroll-behavior: none;
-    touch-action: manipulation;
+    touch-action: none;
     user-select: none;
     position: fixed;
     top: 0;
@@ -25,7 +25,7 @@ canvas {
 
 .container {
     overflow: hidden;
-    touch-action: manipulation;
+    touch-action: none;
     position: absolute;
     bottom: 0px;
     display: flex;
@@ -43,7 +43,7 @@ canvas {
 
 .arrow {
     overflow: hidden;
-    touch-action: manipulation;
+    touch-action: none;
     background-color: #50747c00;
     /* user-select: auto; */
     font-size: 75px;
