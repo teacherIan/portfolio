@@ -76,7 +76,6 @@ export default function Experience({
           <BookShelf loc={[-45, 0, -45]} />
           <FullScene />
           {/* <OrbitControls makeDefault /> */}
-
           <Lights />
           <Floor />
           <MainLoader />

@@ -2,7 +2,7 @@ html,
 body,
 #root {
     touch-action: manipulation;
-    user-select: none;
+
     position: fixed;
     top: 0;
     left: 0;
@@ -21,11 +21,11 @@ body,
     z-index: 1000;
     justify-content: space-between;
     align-items: center;
-    user-select: none;
+    /* user-select: none;
     -webkit-user-select: none;
     /* Safari */
-    -webkit-touch-callout: none;
-    /* iOS Safari */
+    /* -webkit-touch-callout: none; */
+
 }
 
 
