@@ -12,6 +12,11 @@ body,
     /* background-color: black; */
 }
 
+canvas {
+    width: 100svw;
+    height: 100svh;
+}
+
 .container {
     touch-action: manipulation;
     position: absolute;
