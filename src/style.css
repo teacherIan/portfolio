@@ -13,6 +13,7 @@ body,
 }
 
 .container {
+    touch-action: manipulation;
     position: absolute;
     bottom: 0px;
     display: flex;
@@ -30,7 +31,7 @@ body,
 
 .arrow {
     touch-action: manipulation;
-    background-color: rgb(255, 255, 255);
+    background-color: #50747c00;
     /* user-select: auto; */
     font-size: 75px;
     display: flex;
@@ -39,9 +40,9 @@ body,
     text-align: center;
     width: 100px;
     height: 80px;
-    border: 0px #50747c solid;
+    border: 0px white solid;
     /* border-radius: 3px; */
-    color: #50747c;
+    color: white;
 
 
 }
