@@ -5,6 +5,7 @@ import {
   Sky,
   SoftShadows,
   Grid,
+  useDetectGPU,
 } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import Lights from './Lights';
@@ -38,11 +39,12 @@ export default function Experience({
   upButtonState,
   downButtonState,
 }) {
+  const useGPU = useDetectGPU();
   return (
     <>
       <PresentationControls
-        enabled={true} // the controls can be disabled by setting this to false
-        global={true} // Spin globally or by dragging the model
+        enabled={!useGPU.isMobile} // the controls can be disabled by setting this to false
+        global={false} // Spin globally or by dragging the model
         cursor={true} // Whether to toggle cursor style on drag
         snap={{ mass: 4, tension: 100 }} // Snap-back to center (can also be a spring config)
         speed={0.1} // Speed factor
