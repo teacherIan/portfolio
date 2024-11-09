@@ -20,7 +20,7 @@ export default function GitHubMesh(props) {
       //   rotation={[0, Math.PI * -1.1, 0]}
       type="dynamic"
       scale={2}
-      position={[27, 5, -45]}
+      position={[27, 5, -37]}
       colliders="cuboid"
     >
       <group {...props} dispose={null}>

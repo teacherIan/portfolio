@@ -18,7 +18,7 @@ export default function GitHubMesh(props) {
       restitution={0.5}
       type="dynamic"
       scale={2}
-      position={[12, 5, -45]}
+      position={[12, 5, -37]}
       colliders="cuboid"
     >
       <group {...props} dispose={null}>

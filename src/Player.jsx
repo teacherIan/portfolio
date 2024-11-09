@@ -55,7 +55,7 @@ export default function Player() {
       friction={1}
       linearDamping={0.5}
       angularDamping={0.5}
-      position={[22, 100, -68]}
+      position={[17, 100, -68]}
       scale={1}
     >
       <mesh>

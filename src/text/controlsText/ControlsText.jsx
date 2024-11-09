@@ -2,7 +2,7 @@ import { Text, Float } from '@react-three/drei';
 
 export default function ControlsText() {
   return (
-    <group position={[30, -109.25, -120]} rotation={[Math.PI / 2, 0, 0]}>
+    <group position={[25, -109.25, -120]} rotation={[Math.PI / 2, 0, 0]}>
       <Text
         rotation={[0, 0, 0]}
         scale={10}

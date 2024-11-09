@@ -5,7 +5,7 @@ export default function ContactText() {
     <Text
       rotation={[Math.PI / 2, Math.PI, 0]}
       scale={7}
-      position={[20, -9.25, -20]}
+      position={[20, -9.25, -12]}
       color="white"
       anchorX="center"
       anchorY="middle"

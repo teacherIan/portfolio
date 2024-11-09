@@ -10,8 +10,8 @@ export default function GitHub() {
       restitution={1}
       rotation={[0, Math.PI * -1.1, 0]}
       type="dynamic"
-      scale={10}
-      position={[23, -2, -43]}
+      scale={20}
+      position={[23, -2, -80]}
       colliders="cuboid"
     >
       <primitive object={github.scene} scale={0.25} />
