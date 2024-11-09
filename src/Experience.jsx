@@ -44,23 +44,28 @@ const gridOptions = {
   infiniteGrid: true,
 };
 
-export default function Experience() {
+export default function Experience({
+  leftButtonState,
+  rightButtonState,
+  upButtonState,
+  downButtonState,
+}) {
   return (
     <>
       <Physics debug={false} gravity={[0, -20, 0]}>
-        <Player />
+        <Player
+          leftButtonState={leftButtonState}
+          rightButtonState={rightButtonState}
+          upButtonState={upButtonState}
+          downButtonState={downButtonState}
+        />
         <Pins />
-        {/* <Cannon /> */}
         <BookShelf loc={[-45, 0, -45]} />
-        {/* <BookShelf loc={[-45, 0, -50]} /> */}
         <FullScene />
         <OrbitControls makeDefault />
         <Lights />
         <Floor />
         <MainLoader />
-        {/* <Cissp /> */}
-        {/* <CCNA /> */}
-        {/* <Aws /> */}
         <ControlsText />
         <GoogleAsMesh />
         <GitHubMesh />

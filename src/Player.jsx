@@ -3,7 +3,12 @@ import { useKeyboardControls } from '@react-three/drei';
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 
-export default function Player() {
+export default function Player({
+  leftButtonState,
+  rightButtonState,
+  upButtonState,
+  downButtonState,
+}) {
   const bodyRef = useRef();
   const [subscribeKeys, getKeys] = useKeyboardControls();
 
@@ -19,22 +24,22 @@ export default function Player() {
     const impulseStrength = 12000;
     const torqueStrength = 12000;
 
-    if (forward) {
+    if (forward || upButtonState) {
       impulse.z = impulseStrength;
       torque.x = torqueStrength;
     }
 
-    if (rightward) {
+    if (rightward || rightButtonState) {
       impulse.x -= impulseStrength;
       torque.z += torqueStrength;
     }
 
-    if (backward) {
+    if (backward || downButtonState) {
       impulse.z -= impulseStrength;
       torque.x -= torqueStrength;
     }
 
-    if (leftward) {
+    if (leftward || leftButtonState) {
       impulse.x += impulseStrength;
       torque.z -= torqueStrength;
     }
