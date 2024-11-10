@@ -11,6 +11,7 @@ export default function Player({
 }) {
   const bodyRef = useRef();
   const [subscribeKeys, getKeys] = useKeyboardControls();
+  const location = window.innerWidth < 1000 ? [-20, 100, -120] : [17, 100, -68];
 
   useFrame((state, delta) => {
     /**
@@ -60,7 +61,7 @@ export default function Player({
       friction={1}
       linearDamping={0.5}
       angularDamping={0.5}
-      position={[17, 100, -68]}
+      position={location}
       scale={1}
     >
       <mesh>

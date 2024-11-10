@@ -20,6 +20,7 @@ const materialTwo = new THREE.MeshPhysicalMaterial({
 });
 
 export default function BookShelf({ loc }) {
+  const offset = window.innerWidth < 1000 ? 25 : 0;
   //[-55, 10, -40]
   //-70, 10, -30
   //-50, 10, -60
@@ -27,7 +28,7 @@ export default function BookShelf({ loc }) {
     'shelfA',
     {
       aPositionX: {
-        value: -47.34,
+        value: -47.34 + offset,
         step: 0.01,
         min: -100,
         max: 100,
@@ -57,7 +58,7 @@ export default function BookShelf({ loc }) {
     'shelfB',
     {
       bPositionX: {
-        value: -55.68,
+        value: -55.68 + offset,
         step: 0.01,
         min: -100,
         max: 100,
@@ -86,7 +87,7 @@ export default function BookShelf({ loc }) {
     'shelfC',
     {
       cPositionX: {
-        value: -62.37,
+        value: -62.37 + offset,
         step: 0.01,
         min: -100,
         max: 100,
