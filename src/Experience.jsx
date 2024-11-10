@@ -32,6 +32,7 @@ import Pin from './bowling/Pin';
 import BookShelf from './BookShelf';
 import ControlsText from './text/controlsText/ControlsText';
 import Player from './Player';
+import Walls from './Walls';
 
 export default function Experience({
   leftButtonState,
@@ -75,6 +76,7 @@ export default function Experience({
           <ProjectsText />
           <Dfw />
           <Ball />
+          <Walls />
         </Physics>
         <CertText />
         <ContactText />
