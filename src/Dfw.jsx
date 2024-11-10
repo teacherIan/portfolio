@@ -9,7 +9,7 @@ export default function Dfw() {
   const offset = window.innerWidth < 1000 ? -25 : 0;
   const { positionX, positionY, positionZ, rotation } = useControls('dfw', {
     positionX: {
-      value: 48.6 + offset * 2.1,
+      value: 48.6 + offset * 1.8,
       step: 0.01,
       min: -100,
       max: 100,
@@ -21,7 +21,7 @@ export default function Dfw() {
       max: 100,
     },
     positionZ: {
-      value: -54 + offset * 2,
+      value: -54 + offset * 2.7,
       step: 0.01,
       min: -200,
       max: 100,

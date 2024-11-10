@@ -5,6 +5,8 @@ import { Outlines, useCursor, Text } from '@react-three/drei';
 import { useState } from 'react';
 
 export default function GitHubMesh(props) {
+  const offset = window.innerWidth < 1000 ? -30 : 0;
+
   const [hovered, set] = useState(false);
   useCursor(hovered);
   const handleClick = () => {
@@ -20,8 +22,8 @@ export default function GitHubMesh(props) {
         // friction={1}
         //   rotation={[0, Math.PI * -1.1, 0]}
         type="dynamic"
-        scale={10}
-        position={[50, 10, -70]}
+        scale={15}
+        position={[50 + offset, 10, -72 + offset * 1.3]}
         colliders="cuboid"
       >
         <group {...props} dispose={null}>
@@ -50,7 +52,7 @@ export default function GitHubMesh(props) {
       <Text
         rotation={[Math.PI / 2, Math.PI, 0]}
         scale={3}
-        position={[50, -9.25, -74]}
+        position={[50 + offset, -9.25, -72 + offset * 1.3 - 7]}
         color="white"
         anchorX="center"
         anchorY="middle"
