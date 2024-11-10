@@ -23,7 +23,7 @@ export default function GitHubMesh(props) {
         //   rotation={[0, Math.PI * -1.1, 0]}
         type="dynamic"
         scale={15}
-        position={[50 + offset, 10, -72 + offset * 1.3]}
+        position={[50 + offset, 10, -72 + offset * 1.1]}
         colliders="cuboid"
       >
         <group {...props} dispose={null}>
@@ -52,7 +52,7 @@ export default function GitHubMesh(props) {
       <Text
         rotation={[Math.PI / 2, Math.PI, 0]}
         scale={3}
-        position={[50 + offset, -9.25, -72 + offset * 1.3 - 7]}
+        position={[50 + offset, -9.25, -72 + offset * 1.1 - 7]}
         color="white"
         anchorX="center"
         anchorY="middle"

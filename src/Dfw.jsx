@@ -21,7 +21,7 @@ export default function Dfw() {
       max: 100,
     },
     positionZ: {
-      value: -54 + offset * 2.7,
+      value: -54 + offset * 2.5,
       step: 0.01,
       min: -200,
       max: 100,

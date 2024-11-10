@@ -24,7 +24,7 @@ export default function Ball() {
       max: 100,
     },
     positionZ: {
-      value: -65 + offset * 2.9,
+      value: -65 + offset * 2.3,
       step: 0.01,
       min: -200,
       max: 100,
