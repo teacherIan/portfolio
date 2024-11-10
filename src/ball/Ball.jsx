@@ -24,7 +24,7 @@ export default function Ball() {
       max: 100,
     },
     positionZ: {
-      value: -65 + offset * 2.3,
+      value: -62 + offset * 2.3,
       step: 0.01,
       min: -200,
       max: 100,
@@ -67,7 +67,7 @@ export default function Ball() {
       <Text
         rotation={[Math.PI / 2, Math.PI, 0]}
         scale={3}
-        position={[positionX, -9.25, positionZ - 3]}
+        position={[positionX, -9.25, positionZ - 3.5]}
         color="white"
         anchorX="center"
         anchorY="middle"
