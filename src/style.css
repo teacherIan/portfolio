@@ -61,3 +61,10 @@ canvas {
 .left {}
 
 .right {}
+
+.joystick {
+    position: absolute;
+    z-index: 2000;
+    bottom: 20px;
+    right: 20px;
+}

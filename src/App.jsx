@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import Experience from './Experience.jsx';
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense, useState, useEffect, useRef } from 'react';
 import { KeyboardControls, Grid, useDetectGPU } from '@react-three/drei';
 import { Leva } from 'leva';
 
@@ -11,6 +11,8 @@ import {
   PiArrowFatUpThin,
 } from 'react-icons/pi';
 
+import { Joystick } from 'react-joystick-component';
+
 import Loading from './Loading.jsx';
 
 export default function App() {
@@ -19,6 +21,9 @@ export default function App() {
   const [rightButtonState, setRightButtonState] = useState(false);
   const [upButtonState, setUpButtonState] = useState(false);
   const [downButtonState, setDownButtonState] = useState(false);
+  const [joystickX, setJoystickX] = useState(0);
+
+  useEffect(() => {}, []);
 
   const handlePressStart = (direction) => {
     switch (direction) {
@@ -54,11 +59,24 @@ export default function App() {
     }
   };
 
+  function handleJoystickMove() {}
+
   return (
     <>
       <Leva hidden />
+      <div className="joystick">
+        <Joystick
+          className
+          size={100}
+          sticky={false}
+          baseColor="#dddddd33"
+          stickColor="#50747c"
+          move={(e) => handleJoystickMove()}
+          // pos={ x: 100, y: 100 }
+        />
+      </div>
 
-      {useGPU.isMobile ? (
+      {/* {useGPU.isMobile ? (
         <div className="container">
           <div
             onTouchStart={() => handlePressStart('left')}
@@ -89,7 +107,7 @@ export default function App() {
             <PiArrowFatDownThin />
           </div>
         </div>
-      ) : null}
+      ) : null} */}
 
       <Canvas
         camera={{
