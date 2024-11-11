@@ -35,6 +35,8 @@ import Player from './Player';
 import Walls from './Walls';
 
 export default function Experience({
+  joystickX,
+  joystickY,
   leftButtonState,
   rightButtonState,
   upButtonState,
@@ -57,6 +59,8 @@ export default function Experience({
       >
         <Physics debug={false} gravity={[0, -20, 0]}>
           <Player
+            joystickX={joystickX}
+            joystickY={joystickY}
             leftButtonState={leftButtonState}
             rightButtonState={rightButtonState}
             upButtonState={upButtonState}

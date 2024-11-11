@@ -21,9 +21,9 @@ export default function App() {
   const [rightButtonState, setRightButtonState] = useState(false);
   const [upButtonState, setUpButtonState] = useState(false);
   const [downButtonState, setDownButtonState] = useState(false);
-  const [joystickX, setJoystickX] = useState(0);
 
-  useEffect(() => {}, []);
+  const joystickX = useRef(0);
+  const joystickY = useRef(0);
 
   const handlePressStart = (direction) => {
     switch (direction) {
@@ -59,7 +59,15 @@ export default function App() {
     }
   };
 
-  function handleJoystickMove() {}
+  function handleJoystickMove(e) {
+    joystickX.current = e.x;
+    joystickY.current = e.y;
+  }
+
+  function handleJoystickStop() {
+    joystickX.current = 0;
+    joystickY.current = 0;
+  }
 
   return (
     <>
@@ -71,7 +79,8 @@ export default function App() {
           sticky={false}
           baseColor="#dddddd33"
           stickColor="#50747c"
-          move={(e) => handleJoystickMove()}
+          move={handleJoystickMove}
+          stop={handleJoystickStop}
           // pos={ x: 100, y: 100 }
         />
       </div>
@@ -134,6 +143,8 @@ export default function App() {
             ]}
           >
             <Experience
+              joystickX={joystickX}
+              joystickY={joystickY}
               leftButtonState={leftButtonState}
               rightButtonState={rightButtonState}
               upButtonState={upButtonState}

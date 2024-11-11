@@ -8,12 +8,15 @@ export default function Player({
   rightButtonState,
   upButtonState,
   downButtonState,
+  joystickX,
+  joystickY,
 }) {
   const bodyRef = useRef();
   const [subscribeKeys, getKeys] = useKeyboardControls();
   const location = window.innerWidth < 1000 ? [-20, 100, -120] : [17, 100, -68];
 
   useFrame((state, delta) => {
+    console.log(joystickX);
     /**
      * Controls
      */
@@ -43,6 +46,29 @@ export default function Player({
     if (leftward || leftButtonState) {
       impulse.x += impulseStrength;
       torque.z -= torqueStrength;
+    }
+
+    if (joystickX.current != 0) {
+      if (joystickX.current < 0) {
+        impulse.x -= impulseStrength * joystickX.current;
+        torque.z += torqueStrength * joystickX.current;
+      }
+
+      if (joystickX.current > 0) {
+        impulse.x += impulseStrength * -joystickX.current;
+        torque.z -= torqueStrength * -joystickX.current;
+      }
+    }
+
+    if (joystickY.current != 0) {
+      if (joystickY.current < 0) {
+        impulse.z -= impulseStrength * -joystickY.current;
+        torque.x -= torqueStrength * -joystickY.current;
+      }
+      if (joystickY.current > 0) {
+        impulse.z = impulseStrength * joystickY.current;
+        torque.x = torqueStrength * joystickY.current;
+      }
     }
 
     if (bodyRef.current) {
