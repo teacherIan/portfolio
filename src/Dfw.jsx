@@ -36,7 +36,9 @@ export default function Dfw() {
 
   const [hovered, set] = useState(false);
   useCursor(hovered);
-  const handleClick = () => {
+
+  const handleInteraction = (event) => {
+    event.stopPropagation(); // Prevents the event from bubbling up
     window.open('https://www.dfw.earth', '_blank');
   };
 
@@ -48,7 +50,7 @@ export default function Dfw() {
         restitution={0.5}
         rotation={[0, rotation, 0]}
         type="dynamic"
-        scale={25}
+        scale={window.innerWidth < 1000 ? 40 : 25}
         position={[positionX, positionY, positionZ]}
         colliders="cuboid"
       >
@@ -60,7 +62,8 @@ export default function Dfw() {
             material={materials['Material_0.001']}
             onPointerOver={() => set(true)}
             onPointerOut={() => set(false)}
-            onClick={handleClick}
+            onPointerDown={handleInteraction}
+            onClick={handleInteraction}
           >
             <Outlines thickness={hovered ? 5 : 0} color="white" />
           </mesh>

@@ -2,10 +2,12 @@ import Pin from './Pin';
 import { useControls } from 'leva';
 
 export default function Pins() {
+  let valueX = window.innerWidth < 1000 ? 116.5 : 154.2;
+  let valueZ = window.innerWidth < 1000 ? -53.5 : -16;
   const offset = window.innerWidth < 1000 ? -25 : 0;
   const { positionX, positionY, positionZ, rotation } = useControls('Pins', {
     positionX: {
-      value: 154.2 + offset * 1.5,
+      value: valueX,
       step: 0.01,
       min: -200,
       max: 200,
@@ -17,7 +19,7 @@ export default function Pins() {
       max: 100,
     },
     positionZ: {
-      value: -16 + offset * 1.5,
+      value: valueZ,
       step: 0.01,
       min: -100,
       max: 100,

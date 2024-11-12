@@ -16,7 +16,6 @@ export default function Player({
   const location = window.innerWidth < 1000 ? [-20, 100, -120] : [17, 100, -68];
 
   useFrame((state, delta) => {
-    console.log(joystickX);
     /**
      * Controls
      */
