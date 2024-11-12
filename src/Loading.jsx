@@ -5,8 +5,8 @@ import Lights from './Lights';
 
 export default function Loading() {
   //position={[-30, -9.25, -65]}
-  const x = window.innerWidth < 1400 ? 5 : -30;
-  const z = window.innerWidth < 1400 ? -90 : -65;
+  const x = window.innerWidth < 1400 ? 15 : -30;
+  const z = window.innerWidth < 1400 ? -140 : -65;
   const rotation = window.innerWidth < 1400 ? 3 : 10;
   const [dots, setDots] = useState('');
 
@@ -65,8 +65,8 @@ export default function Loading() {
         Loading{fixedLengthDots}
       </Text>
       <Text
-        rotation={[Math.PI / 2, Math.PI, -Math.PI / rotation]}
-        scale={20}
+        rotation={[Math.PI / 2, Math.PI, -Math.PI / 10]}
+        scale={15}
         position={[x, -9.25, z]}
         color="white"
         anchorX="center"
