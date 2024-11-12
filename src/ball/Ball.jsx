@@ -51,7 +51,7 @@ export default function Ball() {
         restitution={0.5}
         type="dynamic"
         colliders="ball"
-        scale={5}
+        scale={window.innerWidth < 1400 ? 8 : 6}
         position={[positionX, positionY, positionZ]}
       >
         <mesh
