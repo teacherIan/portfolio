@@ -78,8 +78,8 @@ export default function App() {
           className
           size={100}
           sticky={false}
-          baseColor="#dddddd33"
-          stickColor="#50747c"
+          baseColor="#50747c"
+          stickColor="lightblue" //#50747c
           move={handleJoystickMove}
           stop={handleJoystickStop}
           // pos={ x: 100, y: 100 }

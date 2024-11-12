@@ -15,6 +15,11 @@ export default function GitHubMesh(props) {
 
   const { nodes, materials } = useGLTF(gitModel);
 
+  const handleInteraction = (event) => {
+    event.stopPropagation(); // Prevents the event from bubbling up
+    window.open('https://github.com/teacherIan', '_blank');
+  };
+
   return (
     <>
       <RigidBody
@@ -43,6 +48,8 @@ export default function GitHubMesh(props) {
               material={materials['glossy putih']}
               onPointerOver={() => set(true)}
               onPointerOut={() => set(false)}
+              onPointerDown={handleInteraction}
+              onClick={handleInteraction}
             >
               <Outlines thickness={hovered ? 5 : 0} color="lightblue" />
             </mesh>
