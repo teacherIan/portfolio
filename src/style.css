@@ -65,6 +65,6 @@ canvas {
 .joystick {
     position: absolute;
     z-index: 2000;
-    bottom: 20px;
-    right: 20px;
+    bottom: 50px;
+    right: 50px;
 }

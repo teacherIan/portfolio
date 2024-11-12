@@ -83,7 +83,7 @@ export default function Experience({
           <Walls />
         </Physics>
         <CertText />
-        <ContactText />
+        {/* <ContactText /> */}
         <Grid
           position={[0, -9, 0]}
           args={[50, 50]}

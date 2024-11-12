@@ -76,7 +76,7 @@ export default function App() {
       <div className="joystick">
         <Joystick
           className
-          size={100}
+          size={150}
           sticky={false}
           baseColor="#50747c"
           stickColor="lightblue" //#50747c

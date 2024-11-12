@@ -4,6 +4,10 @@ import { MeshReflectorMaterial } from '@react-three/drei';
 import Lights from './Lights';
 
 export default function Loading() {
+  //position={[-30, -9.25, -65]}
+  const x = window.innerWidth < 1400 ? 10 : -30;
+  const z = window.innerWidth < 1400 ? -80 : -65;
+  const rotation = window.innerWidth < 1400 ? 3 : 10;
   const [dots, setDots] = useState('');
 
   useEffect(() => {
@@ -59,6 +63,16 @@ export default function Loading() {
         anchorY="middle"
       >
         Loading{fixedLengthDots}
+      </Text>
+      <Text
+        rotation={[Math.PI / 2, Math.PI, -Math.PI / rotation]}
+        scale={20}
+        position={[x, -9.25, z]}
+        color="white"
+        anchorX="center"
+        anchorY="middle"
+      >
+        {`Joystick ->`}
       </Text>
     </>
   );
