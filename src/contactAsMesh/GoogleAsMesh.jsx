@@ -1,6 +1,6 @@
 import { useGLTF } from '@react-three/drei';
 import googleModel from '../assets/google.glb';
-import { RigidBody } from '@react-three/rapier';
+import { RigidBody, interactionGroups } from '@react-three/rapier';
 import { Outlines, useCursor, Text } from '@react-three/drei';
 import { useState } from 'react';
 
@@ -8,7 +8,8 @@ export default function GitHubMesh(props) {
   const [showText, setShowText] = useState(false);
   const [hovered, set] = useState(false);
   useCursor(hovered);
-  const handleClick = () => {
+  const handleInteraction = (event) => {
+    event.stopPropagation();
     setShowText(true);
   };
 
@@ -16,13 +17,19 @@ export default function GitHubMesh(props) {
   return (
     <>
       <RigidBody
+        collisionGroups={interactionGroups([1], [1])}
         restitution={0.5}
         type="dynamic"
-        scale={2}
+        scale={3}
         position={[12, 5, -37]}
         colliders="cuboid"
       >
-        <group {...props} dispose={null} onClick={handleClick}>
+        <group
+          {...props}
+          dispose={null}
+          onPointerDown={handleInteraction}
+          onClick={handleInteraction}
+        >
           <group rotation={[Math.PI / 2, Math.PI, 0]} scale={2}>
             <group {...props} dispose={null}>
               <group
@@ -37,7 +44,6 @@ export default function GitHubMesh(props) {
                   material={materials['glossy putih.002']}
                   onPointerOver={() => set(true)}
                   onPointerOut={() => set(false)}
-                  onClick={handleClick}
                 >
                   <Outlines thickness={hovered ? 5 : 0} color="lightblue" />
                 </mesh>

@@ -1,6 +1,6 @@
 import { useGLTF } from '@react-three/drei';
 import linkedinModel from '../assets/linkedin.glb';
-import { RigidBody } from '@react-three/rapier';
+import { RigidBody, interactionGroups } from '@react-three/rapier';
 import { Outlines, useCursor } from '@react-three/drei';
 import { useState } from 'react';
 
@@ -16,10 +16,9 @@ export default function GitHubMesh(props) {
   return (
     <RigidBody
       restitution={0.5}
-      // friction={1}
-      //   rotation={[0, Math.PI * -1.1, 0]}
+      collisionGroups={interactionGroups([1], [1])}
       type="dynamic"
-      scale={2}
+      scale={3}
       position={[27, 5, -37]}
       colliders="cuboid"
     >

@@ -31,10 +31,14 @@ export default function GitHubMesh(props) {
         position={[50 + offset, 10, -72 + offset * 1.1]}
         colliders="cuboid"
       >
-        <group {...props} dispose={null}>
+        <group
+          {...props}
+          dispose={null}
+          onPointerDown={handleInteraction}
+          onClick={handleInteraction}
+        >
           <group rotation={[0, Math.PI, 0]} scale={10}>
             <mesh
-              onClick={handleClick}
               castShadow
               receiveShadow
               geometry={nodes.Curve021.geometry}
@@ -48,8 +52,6 @@ export default function GitHubMesh(props) {
               material={materials['glossy putih']}
               onPointerOver={() => set(true)}
               onPointerOut={() => set(false)}
-              onPointerDown={handleInteraction}
-              onClick={handleInteraction}
             >
               <Outlines thickness={hovered ? 5 : 0} color="lightblue" />
             </mesh>

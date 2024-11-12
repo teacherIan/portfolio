@@ -3,7 +3,7 @@ import { useLoader } from '@react-three/fiber';
 import roughMap from './ROUGH.jpg';
 import ballTexture from './2k_sun.jpeg';
 import normalMapTexture from './NORM.jpg';
-import { RigidBody } from '@react-three/rapier';
+import { RigidBody, interactionGroups } from '@react-three/rapier';
 import { Outlines, useCursor, Text } from '@react-three/drei';
 import { useState } from 'react';
 import { useControls } from 'leva';
@@ -49,6 +49,7 @@ export default function Ball() {
   return (
     <>
       <RigidBody
+        collisionGroups={interactionGroups([1], [1])}
         restitution={0.5}
         type="dynamic"
         colliders="ball"
