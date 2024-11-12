@@ -22,7 +22,7 @@ export default function GitHubMesh(props) {
         // friction={1}
         //   rotation={[0, Math.PI * -1.1, 0]}
         type="dynamic"
-        scale={15}
+        scale={window.innerWidth < 1400 ? 25 : 15}
         position={[50 + offset, 10, -72 + offset * 1.1]}
         colliders="cuboid"
       >

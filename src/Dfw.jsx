@@ -50,7 +50,7 @@ export default function Dfw() {
         restitution={0.5}
         rotation={[0, rotation, 0]}
         type="dynamic"
-        scale={window.innerWidth < 1000 ? 40 : 25}
+        scale={window.innerWidth < 1400 ? 35 : 25}
         position={[positionX, positionY, positionZ]}
         colliders="cuboid"
       >

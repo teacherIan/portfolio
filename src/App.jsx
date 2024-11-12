@@ -16,6 +16,7 @@ import { Joystick } from 'react-joystick-component';
 import Loading from './Loading.jsx';
 
 export default function App() {
+  const smallScreen = window.innerWidth < 1400;
   const useGPU = useDetectGPU();
   const [leftButtonState, setLeftButtonState] = useState(false);
   const [rightButtonState, setRightButtonState] = useState(false);
@@ -121,17 +122,17 @@ export default function App() {
       <Canvas
         camera={{
           // 82
-          fov: window.innerWidth < 1400 ? 70 : 35,
+          fov: window.innerWidth < 1400 ? 30 : 35,
           near: 1,
           far: 2000,
           position: [
             window.innerWidth < 1400 ? 0 : 0,
-            window.innerWidth < 1400 ? 100 : 100,
-            window.innerWidth < 1400 ? -220 : -220,
+            window.innerWidth < 1400 ? 300 : 100,
+            window.innerWidth < 1400 ? -500 : -220,
           ],
         }}
       >
-        <fog attach="fog" args={['#50747c', 20, 500]} />
+        <fog attach="fog" args={['#50747c', 20, smallScreen ? 1000 : 500]} />
         <Suspense fallback={<Loading />}>
           <KeyboardControls
             map={[
