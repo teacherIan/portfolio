@@ -7,6 +7,7 @@ import { RigidBody } from '@react-three/rapier';
 import { Outlines, useCursor, Text } from '@react-three/drei';
 import { useState } from 'react';
 import { useControls } from 'leva';
+import * as THREE from 'three';
 
 export default function Ball() {
   const offset = window.innerWidth < 1000 ? -20 : 0;
@@ -39,7 +40,7 @@ export default function Ball() {
 
   const [hovered, set] = useState(false);
   useCursor(hovered);
-  const handleClick = () => {
+  const handleInteraction = () => {
     window.open('https://pixi-rapier-drop-demo.vercel.app/', '_blank');
   };
   const roughnessMap = useLoader(TextureLoader, roughMap);
@@ -51,11 +52,12 @@ export default function Ball() {
         restitution={0.5}
         type="dynamic"
         colliders="ball"
-        scale={window.innerWidth < 1400 ? 8 : 6}
+        scale={window.innerWidth < 1400 ? 10 : 8}
         position={[positionX, positionY, positionZ]}
       >
         <mesh
-          onClick={handleClick}
+          onPointerDown={handleInteraction}
+          onClick={handleInteraction}
           onPointerOver={() => set(true)}
           onPointerOut={() => set(false)}
         >
