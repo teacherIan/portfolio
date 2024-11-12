@@ -90,7 +90,7 @@ export default function Experience({
           cellColor="white"
           cellThickness={1}
           infiniteGrid
-          fadeDistance={500}
+          fadeDistance={window.innerWidth < 1400 ? 700 : 500}
           sectionSize={100}
           cellSize={50}
           sectionColor={'#ffffff'}
