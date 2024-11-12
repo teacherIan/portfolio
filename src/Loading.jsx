@@ -5,8 +5,8 @@ import Lights from './Lights';
 
 export default function Loading() {
   //position={[-30, -9.25, -65]}
-  const x = window.innerWidth < 1400 ? 10 : -30;
-  const z = window.innerWidth < 1400 ? -80 : -65;
+  const x = window.innerWidth < 1400 ? 5 : -30;
+  const z = window.innerWidth < 1400 ? -90 : -65;
   const rotation = window.innerWidth < 1400 ? 3 : 10;
   const [dots, setDots] = useState('');
 

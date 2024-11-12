@@ -49,24 +49,24 @@ export default function Player({
 
     if (joystickX.current != 0) {
       if (joystickX.current < 0) {
-        impulse.x -= impulseStrength * joystickX.current;
-        torque.z += torqueStrength * joystickX.current;
+        impulse.x -= impulseStrength * joystickX.current * 1.1;
+        torque.z += torqueStrength * joystickX.current * 1.1;
       }
 
       if (joystickX.current > 0) {
-        impulse.x += impulseStrength * -joystickX.current;
-        torque.z -= torqueStrength * -joystickX.current;
+        impulse.x += impulseStrength * -joystickX.current * 1.1;
+        torque.z -= torqueStrength * -joystickX.current * 1.1;
       }
     }
 
     if (joystickY.current != 0) {
       if (joystickY.current < 0) {
-        impulse.z -= impulseStrength * -joystickY.current;
-        torque.x -= torqueStrength * -joystickY.current;
+        impulse.z -= impulseStrength * -joystickY.current * 1.1;
+        torque.x -= torqueStrength * -joystickY.current * 1.1;
       }
       if (joystickY.current > 0) {
-        impulse.z = impulseStrength * joystickY.current;
-        torque.x = torqueStrength * joystickY.current;
+        impulse.z = impulseStrength * joystickY.current * 1.1;
+        torque.x = torqueStrength * joystickY.current * 1.1;
       }
     }
 
