@@ -3,8 +3,39 @@ import googleModel from '../assets/google.glb';
 import { RigidBody, interactionGroups } from '@react-three/rapier';
 import { Outlines, useCursor, Text } from '@react-three/drei';
 import { useState } from 'react';
+import { useControls } from 'leva';
 
 export default function GitHubMesh(props) {
+  const textOffset = window.innerWidth < 1400 ? -10 : -10;
+  const x = window.innerWidth < 1400 ? 10 : -32;
+  const z = window.innerWidth < 1400 ? -70 : -74;
+  const { positionX, positionY, positionZ, rotation } = useControls('google', {
+    positionX: {
+      value: x,
+      step: 0.01,
+      min: -100,
+      max: 100,
+    },
+    positionY: {
+      value: -11,
+      step: 0.01,
+      min: -100,
+      max: 100,
+    },
+    positionZ: {
+      value: z,
+      step: 0.01,
+      min: -200,
+      max: 100,
+    },
+    rotation: {
+      value: -1.5,
+      min: -Math.PI / 2,
+      max: Math.PI / 2,
+      step: 0.01,
+    },
+  });
+
   const [showText, setShowText] = useState(false);
   const [hovered, set] = useState(false);
   useCursor(hovered);
@@ -21,7 +52,7 @@ export default function GitHubMesh(props) {
         restitution={0.5}
         type="dynamic"
         scale={3}
-        position={[12, 5, -37]}
+        position={[positionX, 5, positionZ]}
         colliders="cuboid"
       >
         <group
@@ -33,7 +64,7 @@ export default function GitHubMesh(props) {
           <group rotation={[Math.PI / 2, Math.PI, 0]} scale={2}>
             <group {...props} dispose={null}>
               <group
-                position={[0, 3, 6]}
+                // position={[0, 3, 6]}
                 rotation={[Math.PI / 2, 0, 0]}
                 scale={1}
               >
@@ -82,7 +113,7 @@ export default function GitHubMesh(props) {
         <Text
           rotation={[Math.PI / 2, Math.PI, 0]}
           scale={3}
-          position={[11, 5, -55]}
+          position={[positionX, -9.25, positionZ + textOffset]}
           color="white"
           anchorX="center"
           anchorY="middle"

@@ -11,12 +11,13 @@ export default function Player({
   joystickX,
   joystickY,
 }) {
+  //[17, 100, -68]--> front loaded
   const ballSize = window.innerWidth < 1400 ? 13 : 10;
   const speedMultiplier = window.innerWidth < 1400 ? 4 : 1;
   const multiplier = 1.3;
   const bodyRef = useRef();
   const [subscribeKeys, getKeys] = useKeyboardControls();
-  const location = window.innerWidth < 1400 ? [-0, 100, -185] : [17, 100, -68];
+  const location = window.innerWidth < 1400 ? [-15, 100, 100] : [-15, 100, 100];
 
   useFrame((state, delta) => {
     /**
@@ -89,7 +90,7 @@ export default function Player({
       friction={1}
       linearDamping={1}
       angularDamping={1}
-      gravityScale={3}
+      gravityScale={5}
       position={location}
       scale={1}
     >

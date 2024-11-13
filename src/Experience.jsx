@@ -33,6 +33,7 @@ import BookShelf from './BookShelf';
 import ControlsText from './text/controlsText/ControlsText';
 import Player from './Player';
 import Walls from './Walls';
+import Jump from './Jump';
 
 export default function Experience({
   joystickX,
@@ -69,7 +70,7 @@ export default function Experience({
           <Pins />
           <BookShelf loc={[-45, 0, -45]} />
           <FullScene />
-          {/* <OrbitControls makeDefault /> */}
+          <OrbitControls makeDefault />
           <Lights />
           <Floor />
           <MainLoader />
@@ -81,6 +82,7 @@ export default function Experience({
           <Dfw />
           <Ball />
           <Walls />
+          <Jump />
         </Physics>
         <CertText />
         {/* <ContactText /> */}
