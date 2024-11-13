@@ -7,7 +7,7 @@ export default function Loading() {
   //position={[-30, -9.25, -65]}
   const x = window.innerWidth < 1400 ? 15 : -30;
   const z = window.innerWidth < 1400 ? -140 : -65;
-  const rotation = window.innerWidth < 1400 ? 3 : 10;
+  const rotation = window.innerWidth < 1400 ? -10 : -10;
   const [dots, setDots] = useState('');
 
   useEffect(() => {
@@ -55,9 +55,9 @@ export default function Loading() {
         />
       </mesh>
       <Text
-        rotation={[Math.PI / 2, Math.PI, -Math.PI / 10]}
+        rotation={[Math.PI / 2, Math.PI, -Math.PI / rotation]}
         scale={20}
-        position={[0, -9.25, 0]}
+        position={[0, -9.25, 10]}
         color="white"
         anchorX="center"
         anchorY="middle"

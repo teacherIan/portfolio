@@ -11,9 +11,11 @@ import * as THREE from 'three';
 
 export default function Ball() {
   const offset = window.innerWidth < 1000 ? -20 : 0;
+  const x = window.innerWidth < 1400 ? 33 : 73;
+  const z = window.innerWidth < 1400 ? -108 : -62;
   const { positionX, positionY, positionZ, rotation } = useControls('ball', {
     positionX: {
-      value: 73 + offset * 2,
+      value: x,
       step: 0.01,
       min: -100,
       max: 100,
@@ -25,7 +27,7 @@ export default function Ball() {
       max: 100,
     },
     positionZ: {
-      value: -62 + offset * 2.3,
+      value: z,
       step: 0.01,
       min: -200,
       max: 100,

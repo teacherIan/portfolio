@@ -72,7 +72,7 @@ export default function App() {
 
   return (
     <>
-      <Leva hidden />
+      <Leva />
       <div className="joystick">
         <Joystick
           className
@@ -132,7 +132,7 @@ export default function App() {
           ],
         }}
       >
-        <fog attach="fog" args={['#50747c', 20, smallScreen ? 1000 : 500]} />
+        <fog attach="fog" args={['#50747c', 20, smallScreen ? 1100 : 500]} />
         <Suspense fallback={<Loading />}>
           <KeyboardControls
             map={[
