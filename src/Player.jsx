@@ -11,6 +11,7 @@ export default function Player({
   joystickX,
   joystickY,
 }) {
+  const multiplier = 1.3;
   const bodyRef = useRef();
   const [subscribeKeys, getKeys] = useKeyboardControls();
   const location = window.innerWidth < 1000 ? [-20, 100, -120] : [17, 100, -68];
@@ -49,24 +50,24 @@ export default function Player({
 
     if (joystickX.current != 0) {
       if (joystickX.current < 0) {
-        impulse.x -= impulseStrength * joystickX.current * 1.1;
-        torque.z += torqueStrength * joystickX.current * 1.1;
+        impulse.x -= impulseStrength * joystickX.current * multiplier;
+        torque.z += torqueStrength * joystickX.current * multiplier;
       }
 
       if (joystickX.current > 0) {
-        impulse.x += impulseStrength * -joystickX.current * 1.1;
-        torque.z -= torqueStrength * -joystickX.current * 1.1;
+        impulse.x += impulseStrength * -joystickX.current * multiplier;
+        torque.z -= torqueStrength * -joystickX.current * multiplier;
       }
     }
 
     if (joystickY.current != 0) {
       if (joystickY.current < 0) {
-        impulse.z -= impulseStrength * -joystickY.current * 1.1;
-        torque.x -= torqueStrength * -joystickY.current * 1.1;
+        impulse.z -= impulseStrength * -joystickY.current * multiplier;
+        torque.x -= torqueStrength * -joystickY.current * multiplier;
       }
       if (joystickY.current > 0) {
-        impulse.z = impulseStrength * joystickY.current * 1.1;
-        torque.x = torqueStrength * joystickY.current * 1.1;
+        impulse.z = impulseStrength * joystickY.current * multiplier;
+        torque.x = torqueStrength * joystickY.current * multiplier;
       }
     }
 
