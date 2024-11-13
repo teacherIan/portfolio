@@ -7,8 +7,8 @@ import { useControls } from 'leva';
 
 export default function Dfw() {
   const offset = window.innerWidth < 1000 ? -25 : 0;
-  const x = window.innerWidth < 1400 ? 3.6 : 48.6;
-  const z = window.innerWidth < 1400 ? -140 : -53;
+  const x = window.innerWidth < 1400 ? -36 : 48.6;
+  const z = window.innerWidth < 1400 ? -108 : -53;
   const { positionX, positionY, positionZ, rotation } = useControls('dfw', {
     positionX: {
       value: x,

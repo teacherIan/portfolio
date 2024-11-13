@@ -8,7 +8,7 @@ export default function Walls() {
       {/*right wall */}
       <CuboidCollider args={[5, 100, 300]} position={[-150, 1, -5.5]} />
       {/*back wall */}
-      <CuboidCollider args={[300, 100, 5]} position={[0, 1, -200]} />
+      <CuboidCollider args={[300, 100, 5]} position={[0, 1, -250]} />
       {/*front wall */}
       <CuboidCollider args={[300, 100, 5]} position={[0, 1, 300]} />
     </RigidBody>

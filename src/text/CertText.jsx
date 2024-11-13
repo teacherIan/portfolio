@@ -2,8 +2,8 @@ import { Text } from '@react-three/drei';
 import { useControls } from 'leva';
 
 export default function CertText() {
-  const x = window.innerWidth < 1400 ? 10 : 60;
-  const z = window.innerWidth < 1400 ? -175 : -79;
+  const x = window.innerWidth < 1400 ? 10 : -39;
+  const z = window.innerWidth < 1400 ? -175 : -40;
   const { positionX, positionY, positionZ, rotation } = useControls(
     'certText',
     {

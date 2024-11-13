@@ -2,8 +2,8 @@ import { Text } from '@react-three/drei';
 import { useControls } from 'leva';
 
 export default function ProjectsText() {
-  const x = window.innerWidth < 1400 ? 25.9 : 60;
-  const z = window.innerWidth < 1400 ? 176 : -79;
+  const x = window.innerWidth < 1400 ? -26 : 60;
+  const z = window.innerWidth < 1400 ? -124 : -79;
   const { positionX, positionY, positionZ, rotation } = useControls(
     'projectsText',
     {

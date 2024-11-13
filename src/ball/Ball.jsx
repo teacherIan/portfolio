@@ -11,8 +11,8 @@ import * as THREE from 'three';
 
 export default function Ball() {
   const offset = window.innerWidth < 1000 ? -20 : 0;
-  const x = window.innerWidth < 1400 ? 33 : 73;
-  const z = window.innerWidth < 1400 ? -108 : -62;
+  const x = window.innerWidth < 1400 ? 8.33 : 73;
+  const z = window.innerWidth < 1400 ? -129 : -62;
   const { positionX, positionY, positionZ, rotation } = useControls('ball', {
     positionX: {
       value: x,
@@ -72,7 +72,7 @@ export default function Ball() {
       <Text
         rotation={[Math.PI / 2, Math.PI, 0]}
         scale={3}
-        position={[positionX, -9.25, positionZ - 3.5]}
+        position={[positionX, -9.25, positionZ - 7]}
         color="white"
         anchorX="center"
         anchorY="middle"
