@@ -90,7 +90,7 @@ export default function Player({
       friction={1}
       linearDamping={1}
       angularDamping={1}
-      gravityScale={5}
+      gravityScale={10}
       position={location}
       scale={1}
     >

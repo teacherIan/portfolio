@@ -11,7 +11,9 @@ export default function Jump() {
     const eulerRotation = new THREE.Euler(0, time * 3, 0);
     const quaternionRotation = new THREE.Quaternion();
     quaternionRotation.setFromEuler(eulerRotation);
-    twister.current.setNextKinematicRotation(quaternionRotation);
+    if (twister.current) {
+      twister.current.setNextKinematicRotation(quaternionRotation);
+    }
   });
 
   return (
