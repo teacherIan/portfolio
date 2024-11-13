@@ -13,7 +13,7 @@ export default function Player({
 }) {
   //[17, 100, -68]--> front loaded
   const ballSize = window.innerWidth < 1400 ? 13 : 10;
-  const speedMultiplier = window.innerWidth < 1400 ? 4 : 1;
+  const speedMultiplier = window.innerWidth < 1400 ? 3.5 : 1;
   const multiplier = 1.3;
   const bodyRef = useRef();
   const [subscribeKeys, getKeys] = useKeyboardControls();
