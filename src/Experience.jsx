@@ -47,7 +47,7 @@ export default function Experience({
   return (
     <>
       <PresentationControls
-        enabled={!useGPU.isMobile} // the controls can be disabled by setting this to false
+        // enabled={!useGPU.isMobile} // the controls can be disabled by setting this to false
         global={false} // Spin globally or by dragging the model
         cursor={true} // Whether to toggle cursor style on drag
         snap={{ mass: 4, tension: 100 }} // Snap-back to center (can also be a spring config)
@@ -55,7 +55,7 @@ export default function Experience({
         zoom={1} // Zoom factor when half the polar-max is reached
         rotation={[0, 0, 0]} // Default rotation
         polar={[0, 0]} // Vertical limits
-        azimuth={[-Math.PI / 40, Math.PI / 40]} // Horizontal limits
+        azimuth={[-Math.PI / 40, Math.PI / 10]} // Horizontal limits
         config={{ mass: 1, tension: 170, friction: 26 }}
       >
         <Physics debug={false} gravity={[0, -20, 0]}>
@@ -70,7 +70,7 @@ export default function Experience({
           <Pins />
           <BookShelf loc={[-45, 0, -45]} />
           <FullScene />
-          <OrbitControls makeDefault />
+          {/* <OrbitControls makeDefault /> */}
           <Lights />
           <Floor />
           <MainLoader />
