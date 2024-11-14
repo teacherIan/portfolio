@@ -17,7 +17,7 @@ export default function Player({
   const multiplier = 1.3;
   const bodyRef = useRef();
   const [subscribeKeys, getKeys] = useKeyboardControls();
-  const location = window.innerWidth < 1400 ? [-15, 100, 100] : [-15, 100, 100];
+  const location = window.innerWidth < 1400 ? [-15, 100, 100] : [17, 100, -68];
 
   useFrame((state, delta) => {
     /**
@@ -96,7 +96,7 @@ export default function Player({
     >
       <mesh>
         <sphereGeometry args={[ballSize]} />
-        <meshStandardMaterial color="lightblue" />
+        <meshStandardMaterial metalness={0.3} roughness={0} color="red" />
       </mesh>
     </RigidBody>
   );

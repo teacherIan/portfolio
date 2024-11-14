@@ -20,7 +20,7 @@ export default function Jump() {
     <>
       <RigidBody //behind
         type="fixed"
-        position={[0, -10, 150]}
+        position={[0, -16, 190]}
         rotation={[Math.PI / 7, 0, 0]}
         friction={0}
       >
