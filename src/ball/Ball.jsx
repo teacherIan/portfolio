@@ -57,12 +57,6 @@ export default function Ball() {
       const worldPosition = rigidBodyRef.current.translation();
       const worldRotation = rigidBodyRef.current.rotation();
 
-      // textRef.current.position.set(
-      //   worldPosition.x,
-      //   worldPosition.y + 12,
-      //   worldPosition.z
-      // );
-
       decalRef.current.position.set(
         worldPosition.x,
         worldPosition.y,
@@ -73,13 +67,11 @@ export default function Ball() {
   });
 
   const [hovered, set] = useState(false);
-  useCursor(hovered);
+  useCursor(hovered ? 'pointer' : 'auto'); // Set cursor to 'pointer' when hovered
+  // useCursor(hovered);
   const handleInteraction = () => {
     window.open('https://pixi-rapier-drop-demo.vercel.app/', '_blank');
   };
-  const roughnessMap = useLoader(TextureLoader, roughMap);
-  const texture = useLoader(TextureLoader, ballTexture);
-  const normalMap = useLoader(TextureLoader, normalMapTexture);
   return (
     <>
       <RigidBody
@@ -134,18 +126,6 @@ export default function Ball() {
           </RenderTexture>
         </meshStandardMaterial>
       </Decal>
-
-      {/* <Text
-        ref={textRef}
-        rotation={[0, Math.PI, 0]}
-        scale={3}
-        position={[positionX, -9.25, positionZ - 7]}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-      >
-        Drop Demo
-      </Text> */}
     </>
   );
 }
