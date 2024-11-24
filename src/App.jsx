@@ -122,13 +122,13 @@ export default function App() {
       <Canvas
         camera={{
           // 82
-          fov: window.innerWidth < 1400 ? 30 : 35,
+          fov: window.innerWidth < 1400 ? 30 : 30,
           near: 1,
           far: 2000,
           position: [
             window.innerWidth < 1400 ? 0 : 0,
             window.innerWidth < 1400 ? 300 : 100,
-            window.innerWidth < 1400 ? -500 : -220,
+            window.innerWidth < 1400 ? -500 : -250,
           ],
         }}
       >

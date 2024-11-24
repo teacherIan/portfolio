@@ -1,15 +1,27 @@
 import { TextureLoader, Vector2 } from 'three';
-import { useLoader } from '@react-three/fiber';
+import { useLoader, useFrame } from '@react-three/fiber';
 import roughMap from './ROUGH.jpg';
 import ballTexture from './2k_sun.jpeg';
 import normalMapTexture from './NORM.jpg';
 import { RigidBody, interactionGroups } from '@react-three/rapier';
-import { Outlines, useCursor, Text } from '@react-three/drei';
-import { useState } from 'react';
+import {
+  Outlines,
+  useCursor,
+  Text,
+  Decal,
+  RenderTexture,
+  PerspectiveCamera,
+} from '@react-three/drei';
+import { useState, useRef } from 'react';
 import { useControls } from 'leva';
 import * as THREE from 'three';
 
 export default function Ball() {
+  const meshRef = useRef();
+  // const textRef = useRef();
+  const rigidBodyRef = useRef();
+  const decalRef = useRef();
+
   const offset = window.innerWidth < 1000 ? -20 : 0;
   const x = window.innerWidth < 1400 ? 8.33 : 73;
   const z = window.innerWidth < 1400 ? -129 : -62;
@@ -40,6 +52,26 @@ export default function Ball() {
     },
   });
 
+  useFrame(() => {
+    if (rigidBodyRef.current) {
+      const worldPosition = rigidBodyRef.current.translation();
+      const worldRotation = rigidBodyRef.current.rotation();
+
+      // textRef.current.position.set(
+      //   worldPosition.x,
+      //   worldPosition.y + 12,
+      //   worldPosition.z
+      // );
+
+      decalRef.current.position.set(
+        worldPosition.x,
+        worldPosition.y,
+        worldPosition.z
+      );
+      decalRef.current.quaternion.copy(worldRotation);
+    }
+  });
+
   const [hovered, set] = useState(false);
   useCursor(hovered);
   const handleInteraction = () => {
@@ -51,26 +83,61 @@ export default function Ball() {
   return (
     <>
       <RigidBody
+        ref={rigidBodyRef}
         collisionGroups={interactionGroups([1], [1])}
         restitution={0.5}
         type="dynamic"
         colliders="ball"
-        scale={window.innerWidth < 1400 ? 10 : 8}
+        // scale={window.innerWidth < 1400 ? 10 : 8}
         position={[positionX, positionY, positionZ]}
       >
         <mesh
+          ref={meshRef}
           onPointerDown={handleInteraction}
           onClick={handleInteraction}
           onPointerOver={() => set(true)}
           onPointerOut={() => set(false)}
         >
           <Outlines thickness={hovered ? 5 : 0} color="white" />
-          <sphereGeometry args={[1]} />
+          <sphereGeometry args={[8]} />
           <meshStandardMaterial wireframe color={'lightblue'} />
         </mesh>
       </RigidBody>
-      <Text
-        rotation={[Math.PI / 2, Math.PI, 0]}
+      <Decal
+        ref={decalRef}
+        mesh={meshRef}
+        position={[0, 0, -10]}
+        rotation={[0, Math.PI, 0]}
+        scale={[15, 20, 20]}
+      >
+        <meshStandardMaterial
+          transparent
+          polygonOffset
+          polygonOffsetFactor={-10}
+        >
+          <RenderTexture attach="map">
+            <PerspectiveCamera
+              makeDefault
+              manual
+              aspect={1}
+              position={[0, 0, 220]}
+            />
+
+            <Text
+              fontSize={60}
+              color="tomato"
+              anchorX="center"
+              anchorY="middle"
+            >
+              DROP
+            </Text>
+          </RenderTexture>
+        </meshStandardMaterial>
+      </Decal>
+
+      {/* <Text
+        ref={textRef}
+        rotation={[0, Math.PI, 0]}
         scale={3}
         position={[positionX, -9.25, positionZ - 7]}
         color="white"
@@ -78,7 +145,7 @@ export default function Ball() {
         anchorY="middle"
       >
         Drop Demo
-      </Text>
+      </Text> */}
     </>
   );
 }

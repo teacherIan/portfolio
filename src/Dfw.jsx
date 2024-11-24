@@ -1,11 +1,26 @@
-import { useGLTF } from '@react-three/drei';
 import { RigidBody, interactionGroups } from '@react-three/rapier';
 import tableObj from '../src/assets/table_new.glb';
-import { Suspense, useState } from 'react';
-import { Outlines, useCursor, Text } from '@react-three/drei';
+import { Suspense, useState, useRef } from 'react';
+import { Outlines, useCursor, Text, useGLTF } from '@react-three/drei';
 import { useControls } from 'leva';
+import { useFrame } from '@react-three/fiber';
 
 export default function Dfw() {
+  const textRef = useRef();
+  const rigidBodyRef = useRef();
+
+  useFrame(() => {
+    if (textRef.current && rigidBodyRef.current) {
+      const worldPosition = rigidBodyRef.current.translation();
+
+      // textRef.current.position.set(
+      //   worldPosition.x,
+      //   worldPosition.y + 17,
+      //   worldPosition.z - 6
+      // );
+    }
+  });
+
   const offset = window.innerWidth < 1000 ? -25 : 0;
   const x = window.innerWidth < 1400 ? -36 : 48.6;
   const z = window.innerWidth < 1400 ? -108 : -53;
@@ -48,6 +63,7 @@ export default function Dfw() {
   return (
     <>
       <RigidBody
+        ref={rigidBodyRef}
         collisionGroups={interactionGroups([1], [1])}
         restitution={0.5}
         rotation={[0, rotation, 0]}
@@ -72,6 +88,7 @@ export default function Dfw() {
         </group>
       </RigidBody>
       <Text
+        ref={textRef}
         rotation={[Math.PI / 2, Math.PI, 0]}
         scale={3}
         position={[positionX, -9.25, positionZ - 6]}
