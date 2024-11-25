@@ -3,7 +3,7 @@ import { useControls } from 'leva';
 
 export default function ProjectsText() {
   const x = window.innerWidth < 1400 ? -26 : 60;
-  const z = window.innerWidth < 1400 ? -124 : -79;
+  const z = window.innerWidth < 1400 ? -124 : -87;
   const { positionX, positionY, positionZ, rotation } = useControls(
     'projectsText',
     {

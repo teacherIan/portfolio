@@ -2,10 +2,14 @@ import { useGLTF } from '@react-three/drei';
 import googleModel from '../assets/google.glb';
 import { RigidBody, interactionGroups } from '@react-three/rapier';
 import { Outlines, useCursor, Text } from '@react-three/drei';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useControls } from 'leva';
+import { useFrame } from '@react-three/fiber';
 
 export default function GitHubMesh(props) {
+  const textRef = useRef();
+  const rigidBodyRef = useRef();
+
   const textOffset = window.innerWidth < 1400 ? -10 : -10;
   const x = window.innerWidth < 1400 ? 10 : -32;
   const z = window.innerWidth < 1400 ? -70 : -74;
@@ -38,16 +42,25 @@ export default function GitHubMesh(props) {
 
   const [showText, setShowText] = useState(false);
   const [hovered, set] = useState(false);
-  useCursor(hovered);
+  useCursor(hovered ? 'pointer' : 'grab');
   const handleInteraction = (event) => {
     event.stopPropagation();
     setShowText(true);
   };
 
+  useFrame(() => {
+    if (textRef.current && rigidBodyRef.current) {
+      const worldPosition = rigidBodyRef.current.translation();
+
+      textRef.current.position.set(worldPosition.x, -9.27, worldPosition.z - 6);
+    }
+  });
+
   const { nodes, materials } = useGLTF(googleModel);
   return (
     <>
       <RigidBody
+        ref={rigidBodyRef}
         collisionGroups={interactionGroups([1], [1])}
         restitution={0.5}
         type="dynamic"
@@ -111,6 +124,7 @@ export default function GitHubMesh(props) {
 
       {showText ? (
         <Text
+          ref={textRef}
           rotation={[Math.PI / 2, Math.PI, 0]}
           scale={3}
           position={[positionX, -9.25, positionZ + textOffset]}

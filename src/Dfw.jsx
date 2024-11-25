@@ -13,11 +13,7 @@ export default function Dfw() {
     if (textRef.current && rigidBodyRef.current) {
       const worldPosition = rigidBodyRef.current.translation();
 
-      // textRef.current.position.set(
-      //   worldPosition.x,
-      //   worldPosition.y + 17,
-      //   worldPosition.z - 6
-      // );
+      textRef.current.position.set(worldPosition.x, -9.25, worldPosition.z - 6);
     }
   });
 
@@ -52,7 +48,7 @@ export default function Dfw() {
   });
 
   const [hovered, set] = useState(false);
-  useCursor(hovered);
+  useCursor(hovered ? 'pointer' : 'grab');
 
   const handleInteraction = (event) => {
     event.stopPropagation(); // Prevents the event from bubbling up
@@ -68,7 +64,7 @@ export default function Dfw() {
         restitution={0.5}
         rotation={[0, rotation, 0]}
         type="dynamic"
-        scale={window.innerWidth < 1400 ? 35 : 25}
+        scale={window.innerWidth < 1400 ? 40 : 30}
         position={[positionX, positionY, positionZ]}
         colliders="cuboid"
       >

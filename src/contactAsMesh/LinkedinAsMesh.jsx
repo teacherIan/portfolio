@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 export default function GitHubMesh(props) {
   const [hovered, set] = useState(false);
-  useCursor(hovered);
+  useCursor(hovered ? 'pointer' : 'grab');
   const handleClick = () => {
     window.open('https://www.linkedin.com/in/ian-malloy-0809a543/', '_blank');
   };
@@ -18,7 +18,7 @@ export default function GitHubMesh(props) {
       restitution={0.5}
       collisionGroups={interactionGroups([1], [1])}
       type="dynamic"
-      scale={3}
+      scale={3.5}
       position={[27, 5, -37]}
       colliders="cuboid"
     >

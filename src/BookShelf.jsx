@@ -6,9 +6,9 @@ import * as THREE from 'three';
 import { useControls, button } from 'leva';
 
 const material = new THREE.MeshStandardMaterial({
-  color: 'lightblue',
+  color: 'white',
   metalness: 0.0,
-  roughness: 1,
+  roughness: 0,
 });
 
 const materialTwo = new THREE.MeshPhysicalMaterial({

@@ -132,7 +132,7 @@ export default function App() {
           ],
         }}
       >
-        <fog attach="fog" args={['#50747c', 100, smallScreen ? 1100 : 500]} />
+        <fog attach="fog" args={['#50747c', 120, smallScreen ? 1100 : 500]} />
         <Suspense fallback={<Loading />}>
           <KeyboardControls
             map={[

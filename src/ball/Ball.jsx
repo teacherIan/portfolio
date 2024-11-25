@@ -67,7 +67,7 @@ export default function Ball() {
   });
 
   const [hovered, set] = useState(false);
-  useCursor(hovered ? 'pointer' : 'auto'); // Set cursor to 'pointer' when hovered
+  useCursor(hovered ? 'pointer' : 'grab');
   // useCursor(hovered);
   const handleInteraction = () => {
     window.open('https://pixi-rapier-drop-demo.vercel.app/', '_blank');
@@ -91,16 +91,16 @@ export default function Ball() {
           onPointerOut={() => set(false)}
         >
           <Outlines thickness={hovered ? 5 : 0} color="white" />
-          <sphereGeometry args={[8]} />
+          <sphereGeometry args={[10]} />
           <meshStandardMaterial wireframe color={'lightblue'} />
         </mesh>
       </RigidBody>
       <Decal
         ref={decalRef}
         mesh={meshRef}
-        position={[0, 0, -10]}
+        position={[0, 2, -10]}
         rotation={[0, Math.PI, 0]}
-        scale={[15, 20, 20]}
+        scale={[20, 20, 20]}
       >
         <meshStandardMaterial
           transparent
@@ -115,13 +115,8 @@ export default function Ball() {
               position={[0, 0, 220]}
             />
 
-            <Text
-              fontSize={60}
-              color="tomato"
-              anchorX="center"
-              anchorY="middle"
-            >
-              DROP
+            <Text fontSize={48} color="red" anchorX="center" anchorY="middle">
+              {`CLICK \n  ME!`}
             </Text>
           </RenderTexture>
         </meshStandardMaterial>

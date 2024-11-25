@@ -26,12 +26,12 @@ export default function Player({
   const bodyRef = useRef();
   const ballVis = useRef();
 
-  const ballSize = window.innerWidth < 1400 ? 13 : 10;
+  const ballSize = window.innerWidth < 1400 ? 14 : 11;
   const speedMultiplier = window.innerWidth < 1400 ? 3.5 : 1;
   const multiplier = 1.3;
 
   const [subscribeKeys, getKeys] = useKeyboardControls();
-  const location = window.innerWidth < 1400 ? [-15, 100, 100] : [17, 100, -68];
+  const location = window.innerWidth < 1400 ? [40, 100, -120] : [17, 100, -68];
 
   useFrame((state, delta) => {
     if (textRef.current && bodyRef.current) {
@@ -113,7 +113,6 @@ export default function Player({
 
   return (
     <>
-      {/*fix body */}
       <RigidBody
         collisionGroups={interactionGroups([1], [1])}
         ref={bodyRef}
@@ -136,30 +135,30 @@ export default function Player({
         <meshStandardMaterial metalness={0.3} roughness={0} color="red" />
         <Decal
           attach={ballVis.current}
-          position={[0, 0, 0]}
+          position={[0, 0, -15]}
           rotation={[0, Math.PI, 0]}
-          scale={[15, 20, 40]}
+          scale={[22, 22, 22]}
         >
           <meshStandardMaterial
             transparent
             polygonOffset
-            polygonOffsetFactor={-20}
+            polygonOffsetFactor={0}
           >
             <RenderTexture attach="map">
               <PerspectiveCamera
                 makeDefault
                 manual
                 aspect={1}
-                position={[0, 0, 180]}
+                position={[0, 0, 220]}
               />
 
               <Text
-                fontSize={30}
+                fontSize={34}
                 color="white"
                 anchorX="center"
                 anchorY="middle"
               >
-                Control Me!
+                {`CONTROL\n     ME!`}
               </Text>
             </RenderTexture>
           </meshStandardMaterial>

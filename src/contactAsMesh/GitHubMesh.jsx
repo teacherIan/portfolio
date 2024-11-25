@@ -1,14 +1,17 @@
-import { useGLTF } from '@react-three/drei';
 import gitModel from '../assets/github.glb';
 import { RigidBody } from '@react-three/rapier';
-import { Outlines, useCursor, Text } from '@react-three/drei';
-import { useState } from 'react';
+import { Outlines, useCursor, Text, useGLTF } from '@react-three/drei';
+import { useState, useRef } from 'react';
 import { useControls } from 'leva';
+import { useFrame } from '@react-three/fiber';
 
 export default function GitHubMesh(props) {
-  const textOffset = window.innerWidth < 1400 ? -10 : -5;
+  const textRef = useRef();
+  const rigidBodyRef = useRef();
+
+  const textOffset = window.innerWidth < 1400 ? -15 : -20;
   const x = window.innerWidth < 1400 ? -8 : 50;
-  const z = window.innerWidth < 1400 ? -100 : -72;
+  const z = window.innerWidth < 1400 ? -105 : -78;
   const { positionX, positionY, positionZ, rotation } = useControls('github', {
     positionX: {
       value: x,
@@ -37,10 +40,7 @@ export default function GitHubMesh(props) {
   });
 
   const [hovered, set] = useState(false);
-  useCursor(hovered);
-  const handleClick = () => {
-    window.open('https://github.com/teacherIan', '_blank');
-  };
+  useCursor(hovered ? 'pointer' : 'grab');
 
   const { nodes, materials } = useGLTF(gitModel);
 
@@ -49,14 +49,20 @@ export default function GitHubMesh(props) {
     window.open('https://github.com/teacherIan', '_blank');
   };
 
+  useFrame(() => {
+    const rigidBodyPos = rigidBodyRef.current.translation();
+    textRef.current.position.set(rigidBodyPos.x, -9.25, rigidBodyPos.z - 7);
+  });
+
   return (
     <>
       <RigidBody
+        ref={rigidBodyRef}
         restitution={0.5}
         // friction={1}
         //   rotation={[0, Math.PI * -1.1, 0]}
         type="dynamic"
-        scale={window.innerWidth < 1400 ? 25 : 15}
+        scale={window.innerWidth < 1400 ? 30 : 20}
         position={[positionX, 10, positionZ]}
         colliders="cuboid"
       >
@@ -88,6 +94,7 @@ export default function GitHubMesh(props) {
         </group>
       </RigidBody>
       <Text
+        ref={textRef}
         rotation={[Math.PI / 2, Math.PI, 0]}
         scale={3}
         position={[positionX, -9.25, positionZ + textOffset]}
