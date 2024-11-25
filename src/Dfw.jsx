@@ -13,7 +13,7 @@ export default function Dfw() {
     if (textRef.current && rigidBodyRef.current) {
       const worldPosition = rigidBodyRef.current.translation();
 
-      textRef.current.position.set(worldPosition.x, -9.25, worldPosition.z - 6);
+      textRef.current.position.set(worldPosition.x, -9.25, worldPosition.z - 8);
     }
   });
 
