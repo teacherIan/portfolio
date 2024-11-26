@@ -27,7 +27,7 @@ export default function Player({
   const ballVis = useRef();
 
   const ballSize = window.innerWidth < 1400 ? 14 : 11;
-  const speedMultiplier = window.innerWidth < 1400 ? 3.5 : 1;
+  const speedMultiplier = window.innerWidth < 1400 ? 2 : 1;
   const multiplier = 1.3;
 
   const [subscribeKeys, getKeys] = useKeyboardControls();
@@ -52,8 +52,8 @@ export default function Player({
     const impulse = { x: 0, y: 0, z: 0 };
     const torque = { x: 0, y: 0, z: 0 };
 
-    const impulseStrength = 20000 * speedMultiplier;
-    const torqueStrength = 1000;
+    const impulseStrength = 30000 * speedMultiplier;
+    const torqueStrength = 3000;
 
     if (forward || upButtonState) {
       impulse.z = impulseStrength;
