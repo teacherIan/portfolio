@@ -28,7 +28,7 @@ export default function BookShelf({ loc }) {
     'shelfA',
     {
       aPositionX: {
-        value: -47.34 + offset,
+        value: -50.34 + offset,
         step: 0.01,
         min: -100,
         max: 100,
@@ -40,7 +40,7 @@ export default function BookShelf({ loc }) {
         max: 100,
       },
       aPositionZ: {
-        value: -35,
+        value: -30,
         step: 0.01,
         min: -100,
         max: 100,
@@ -58,7 +58,7 @@ export default function BookShelf({ loc }) {
     'shelfB',
     {
       bPositionX: {
-        value: -55.68 + offset,
+        value: -68.68 + offset,
         step: 0.01,
         min: -100,
         max: 100,
@@ -70,7 +70,7 @@ export default function BookShelf({ loc }) {
         max: 100,
       },
       bPositionZ: {
-        value: -42.09,
+        value: -37.09,
         step: 0.01,
         min: -100,
         max: 100,
@@ -87,7 +87,7 @@ export default function BookShelf({ loc }) {
     'shelfC',
     {
       cPositionX: {
-        value: -62.37 + offset,
+        value: -66.37 + offset,
         step: 0.01,
         min: -100,
         max: 100,
@@ -145,7 +145,6 @@ export default function BookShelf({ loc }) {
     <group dispose={null}>
       <RigidBody
         onClick={(e) => jump(0)}
-        // onPointerDown={(e) => jump(e, 0)}
         ref={shelfARef}
         collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
@@ -157,7 +156,7 @@ export default function BookShelf({ loc }) {
       >
         <group>
           <mesh geometry={nodes.Cube030.geometry} material={material}>
-            {/* <Outlines thickness={3} color="black" /> */}
+            <Outlines thickness={3} color="black" />
           </mesh>
 
           <mesh
@@ -192,7 +191,6 @@ export default function BookShelf({ loc }) {
       </RigidBody>
       <RigidBody
         onClick={(e) => jump(1)}
-        // onPointerDown={(e) => jump(e, 1)}
         ref={shelfBRef}
         collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
@@ -204,7 +202,7 @@ export default function BookShelf({ loc }) {
       >
         <group>
           <mesh geometry={nodes.Cube030.geometry} material={material}>
-            {/* <Outlines thickness={3} color="black" /> */}
+            <Outlines thickness={3} color="black" />
           </mesh>
           <mesh
             geometry={nodes.Cube030_1.geometry}
@@ -238,7 +236,6 @@ export default function BookShelf({ loc }) {
       </RigidBody>
       <RigidBody
         onClick={(e) => jump(2)}
-        // onPointerDown={(e) => jump(e, 2)}
         ref={shelfCRef}
         collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
@@ -250,7 +247,7 @@ export default function BookShelf({ loc }) {
       >
         <group>
           <mesh geometry={nodes.Cube030.geometry} material={material}>
-            {/* <Outlines thickness={3} color="black" /> */}
+            <Outlines thickness={3} color="black" />
           </mesh>
           <mesh
             geometry={nodes.Cube030_1.geometry}
