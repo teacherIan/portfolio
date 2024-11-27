@@ -118,25 +118,26 @@ export default function BookShelf({ loc }) {
   const shelfCRef = useRef();
 
   const jump = (event, num) => {
-    event.stopPropagation();
-    const shelf =
-      num == 0
-        ? shelfARef.current
-        : num == 1
-        ? shelfBRef.current
-        : shelfCRef.current;
-    const mass = shelf.mass();
+    setTimeout(() => {
+      const shelf =
+        num === 0
+          ? shelfARef.current
+          : num === 1
+          ? shelfBRef.current
+          : shelfCRef.current;
+      const mass = shelf.mass();
 
-    shelf.applyImpulse({
-      x: 100 * mass,
-      y: 10 * mass,
-      z: 100 * mass,
-    });
-    shelf.applyTorqueImpulse({
-      x: Math.random() - 0.5 * mass * 100,
-      y: Math.random() - 0.5 * mass * 100,
-      z: Math.random() - 0.5 * mass * 100,
-    });
+      shelf.applyImpulse({
+        x: 100 * mass,
+        y: 10 * mass,
+        z: 100 * mass,
+      });
+      shelf.applyTorqueImpulse({
+        x: (Math.random() - 0.5) * mass * 100,
+        y: (Math.random() - 0.5) * mass * 100,
+        z: (Math.random() - 0.5) * mass * 100,
+      });
+    }, 0);
   };
 
   const { nodes, materials } = useGLTF(bookShelfObj);
@@ -151,7 +152,7 @@ export default function BookShelf({ loc }) {
         type="dynamic"
         position={[aPositionX, aPositionY, aPositionZ]}
         rotation={[Math.PI / 2, 0, aRotation]}
-        scale={10}
+        scale={15}
       >
         <group>
           <mesh geometry={nodes.Cube030.geometry} material={material}>
