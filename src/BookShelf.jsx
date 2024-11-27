@@ -117,7 +117,7 @@ export default function BookShelf({ loc }) {
   const shelfBRef = useRef();
   const shelfCRef = useRef();
 
-  const jump = (event, num) => {
+  const jump = (num) => {
     setTimeout(() => {
       const shelf =
         num === 0
@@ -128,9 +128,9 @@ export default function BookShelf({ loc }) {
       const mass = shelf.mass();
 
       shelf.applyImpulse({
-        x: 100 * mass,
-        y: 10 * mass,
-        z: 100 * mass,
+        x: 30 + 100 * mass * Math.random(),
+        y: 5 * mass,
+        z: 30 + 100 * mass * Math.random(),
       });
       shelf.applyTorqueImpulse({
         x: (Math.random() - 0.5) * mass * 100,
@@ -144,8 +144,8 @@ export default function BookShelf({ loc }) {
   return (
     <group dispose={null}>
       <RigidBody
-        onClick={(e) => jump(e, 0)}
-        onPointerDown={(e) => jump(e, 0)}
+        onClick={(e) => jump(0)}
+        // onPointerDown={(e) => jump(e, 0)}
         ref={shelfARef}
         collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
@@ -191,8 +191,8 @@ export default function BookShelf({ loc }) {
         </group>
       </RigidBody>
       <RigidBody
-        onClick={(e) => jump(e, 1)}
-        onPointerDown={(e) => jump(e, 1)}
+        onClick={(e) => jump(1)}
+        // onPointerDown={(e) => jump(e, 1)}
         ref={shelfBRef}
         collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
@@ -237,8 +237,8 @@ export default function BookShelf({ loc }) {
         </group>
       </RigidBody>
       <RigidBody
-        onClick={(e) => jump(e, 2)}
-        onPointerDown={(e) => jump(e, 2)}
+        onClick={(e) => jump(2)}
+        // onPointerDown={(e) => jump(e, 2)}
         ref={shelfCRef}
         collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
