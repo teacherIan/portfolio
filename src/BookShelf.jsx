@@ -153,10 +153,11 @@ export default function BookShelf({ loc }) {
         position={[aPositionX, aPositionY, aPositionZ]}
         rotation={[Math.PI / 2, 0, aRotation]}
         scale={15}
+        canSleep={false}
       >
         <group>
           <mesh geometry={nodes.Cube030.geometry} material={material}>
-            <Outlines thickness={3} color="black" />
+            {/* <Outlines thickness={3} color="black" /> */}
           </mesh>
 
           <mesh
@@ -198,11 +199,12 @@ export default function BookShelf({ loc }) {
         type="dynamic"
         position={[bPositionX, bPositionY, bPositionZ]}
         rotation={[Math.PI / 2, 0, bRotation]}
-        scale={10}
+        scale={15}
+        canSleep={false}
       >
         <group>
           <mesh geometry={nodes.Cube030.geometry} material={material}>
-            <Outlines thickness={3} color="black" />
+            {/* <Outlines thickness={3} color="black" /> */}
           </mesh>
           <mesh
             geometry={nodes.Cube030_1.geometry}
@@ -243,11 +245,12 @@ export default function BookShelf({ loc }) {
         type="dynamic"
         position={[cPositionX, cPositionY, cPositionZ]}
         rotation={[Math.PI / 2, 0, cRotation]}
-        scale={10}
+        scale={15}
+        canSleep={false}
       >
         <group>
           <mesh geometry={nodes.Cube030.geometry} material={material}>
-            <Outlines thickness={3} color="black" />
+            {/* <Outlines thickness={3} color="black" /> */}
           </mesh>
           <mesh
             geometry={nodes.Cube030_1.geometry}
