@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useGLTF } from '@react-three/drei';
+import { useGLTF, Outlines } from '@react-three/drei';
 import bookShelfObj from './assets/bookShelf.glb';
 import { RigidBody, interactionGroups } from '@react-three/rapier';
 import * as THREE from 'three';
@@ -154,7 +154,10 @@ export default function BookShelf({ loc }) {
         scale={10}
       >
         <group>
-          <mesh geometry={nodes.Cube030.geometry} material={material} />
+          <mesh geometry={nodes.Cube030.geometry} material={material}>
+            <Outlines thickness={3} color="black" />
+          </mesh>
+
           <mesh
             geometry={nodes.Cube030_1.geometry}
             material={materials['PurpleDark.001']}
@@ -197,7 +200,9 @@ export default function BookShelf({ loc }) {
         scale={10}
       >
         <group>
-          <mesh geometry={nodes.Cube030.geometry} material={material} />
+          <mesh geometry={nodes.Cube030.geometry} material={material}>
+            <Outlines thickness={3} color="black" />
+          </mesh>
           <mesh
             geometry={nodes.Cube030_1.geometry}
             material={materials['PurpleDark.001']}
@@ -240,7 +245,9 @@ export default function BookShelf({ loc }) {
         scale={10}
       >
         <group>
-          <mesh geometry={nodes.Cube030.geometry} material={material} />
+          <mesh geometry={nodes.Cube030.geometry} material={material}>
+            <Outlines thickness={3} color="black" />
+          </mesh>
           <mesh
             geometry={nodes.Cube030_1.geometry}
             material={materials['PurpleDark.001']}
