@@ -21,6 +21,11 @@ body,
 canvas {
     width: 100svw;
     height: 100svh;
+    cursor: grab;
+}
+
+canvas:active {
+    cursor: grabbing;
 }
 
 .container {

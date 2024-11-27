@@ -113,10 +113,39 @@ export default function BookShelf({ loc }) {
     }
   );
 
+  const shelfARef = useRef();
+  const shelfBRef = useRef();
+  const shelfCRef = useRef();
+
+  const jump = (event, num) => {
+    event.stopPropagation();
+    const shelf =
+      num == 0
+        ? shelfARef.current
+        : num == 1
+        ? shelfBRef.current
+        : shelfCRef.current;
+    const mass = shelf.mass();
+
+    shelf.applyImpulse({
+      x: 100 * mass,
+      y: 10 * mass,
+      z: 100 * mass,
+    });
+    shelf.applyTorqueImpulse({
+      x: Math.random() - 0.5 * mass * 100,
+      y: Math.random() - 0.5 * mass * 100,
+      z: Math.random() - 0.5 * mass * 100,
+    });
+  };
+
   const { nodes, materials } = useGLTF(bookShelfObj);
   return (
     <group dispose={null}>
       <RigidBody
+        onClick={(e) => jump(e, 0)}
+        onPointerDown={(e) => jump(e, 0)}
+        ref={shelfARef}
         collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
         type="dynamic"
@@ -157,6 +186,9 @@ export default function BookShelf({ loc }) {
         </group>
       </RigidBody>
       <RigidBody
+        onClick={(e) => jump(e, 1)}
+        onPointerDown={(e) => jump(e, 1)}
+        ref={shelfBRef}
         collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
         type="dynamic"
@@ -197,6 +229,9 @@ export default function BookShelf({ loc }) {
         </group>
       </RigidBody>
       <RigidBody
+        onClick={(e) => jump(e, 2)}
+        onPointerDown={(e) => jump(e, 2)}
+        ref={shelfCRef}
         collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
         type="dynamic"
