@@ -148,7 +148,7 @@ export default function BookShelf({ loc }) {
   const { nodes, materials } = useGLTF(bookShelfObj);
   return (
     <group dispose={null}>
-      <RigidBody
+      {/* <RigidBody
         onClick={(e) => jump(0)}
         ref={shelfARef}
         collisionGroups={interactionGroups([1], [1])}
@@ -198,7 +198,7 @@ export default function BookShelf({ loc }) {
             material={materials['Black.029']}
           />
         </group>
-      </RigidBody>
+      </RigidBody> */}
       <RigidBody
         onClick={(e) => jump(1)}
         ref={shelfBRef}
@@ -249,7 +249,7 @@ export default function BookShelf({ loc }) {
           />
         </group>
       </RigidBody>
-      <RigidBody
+      {/* <RigidBody
         onClick={(e) => jump(2)}
         ref={shelfCRef}
         collisionGroups={interactionGroups([1], [1])}
@@ -298,7 +298,7 @@ export default function BookShelf({ loc }) {
             material={materials['Black.029']}
           />
         </group>
-      </RigidBody>
+      </RigidBody> */}
     </group>
   );
 }
