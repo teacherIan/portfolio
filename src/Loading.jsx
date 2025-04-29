@@ -56,7 +56,7 @@ export default function Loading() {
       </mesh>
       <Text
         rotation={[Math.PI / 2, Math.PI, -Math.PI / rotation]}
-        scale={20}
+        scale={25}
         position={[0, -9.25, 10]}
         color="white"
         anchorX="center"
