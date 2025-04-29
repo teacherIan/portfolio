@@ -70,7 +70,7 @@ export default function BookShelf({ loc }) {
         max: 100,
       },
       bPositionZ: {
-        value: -37.09,
+        value: 100.09,
         step: 0.01,
         min: -100,
         max: 100,
