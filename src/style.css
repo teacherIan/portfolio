@@ -70,6 +70,6 @@ canvas:active {
 .joystick {
     position: absolute;
     z-index: 2000;
-    bottom: 35px;
-    right: 35px;
+    bottom: 2px;
+    right: 2px;
 }

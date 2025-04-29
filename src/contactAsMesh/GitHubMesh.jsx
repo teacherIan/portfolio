@@ -50,8 +50,10 @@ export default function GitHubMesh(props) {
   };
 
   useFrame(() => {
-    const rigidBodyPos = rigidBodyRef.current.translation();
-    textRef.current.position.set(rigidBodyPos.x, -9.25, rigidBodyPos.z - 9);
+    if (rigidBodyRef.current) {
+      const rigidBodyPos = rigidBodyRef.current.translation();
+      textRef.current.position.set(rigidBodyPos.x, -9.25, rigidBodyPos.z - 9);
+    }
   });
 
   return (

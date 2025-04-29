@@ -3,6 +3,7 @@ import Experience from './Experience.jsx';
 import { Suspense, useState, useEffect, useRef } from 'react';
 import { KeyboardControls, Grid, useDetectGPU } from '@react-three/drei';
 import { Leva } from 'leva';
+import joystickArt from '../src/assets/joystick.png';
 
 import {
   PiArrowFatDownThin,
@@ -75,15 +76,15 @@ export default function App() {
       <Leva hidden />
       <div className="joystick">
         <Joystick
-          className
-          size={100}
+          size={window.innerWidth < 1000 ? 100 : 200}
           sticky={false}
-          baseColor="#50747c"
-          stickColor="lightblue" //#50747c
+          baseColor="#50747caa"
+          stickColor="#b6161d" //#50747c
           move={handleJoystickMove}
           stop={handleJoystickStop}
-          // pos={ x: 100, y: 100 }
+          stickImage={joystickArt}
         />
+        {/* JoyStick */}
       </div>
 
       {/* {useGPU.isMobile ? (
