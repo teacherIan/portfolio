@@ -64,7 +64,7 @@ export default function Loading() {
       >
         Loading{fixedLengthDots}
       </Text>
-      <Text
+      {/* <Text
         rotation={[Math.PI / 2, Math.PI, -Math.PI / 10]}
         scale={15}
         position={[x, -9.25, z]}
@@ -73,7 +73,7 @@ export default function Loading() {
         anchorY="middle"
       >
         {`Joystick ->`}
-      </Text>
+      </Text> */}
     </>
   );
 }
