@@ -4,6 +4,7 @@ import { Suspense, useState, useEffect, useRef } from 'react';
 import { KeyboardControls, Grid, useDetectGPU } from '@react-three/drei';
 import { Leva } from 'leva';
 import joystickArt from '../src/assets/joystick.png';
+import { Analytics } from '@vercel/analytics/react';
 
 import {
   PiArrowFatDownThin,
@@ -73,6 +74,7 @@ export default function App() {
 
   return (
     <>
+      <Analytics />
       <Leva hidden />
       <div className="joystick">
         <Joystick
