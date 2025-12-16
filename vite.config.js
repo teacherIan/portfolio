@@ -22,5 +22,19 @@ export default {
     outDir: '../dist', // Output in the dist/ folder
     emptyOutDir: true, // Empty the folder first
     sourcemap: true, // Add sourcemap
+    chunkSizeWarningLimit: 3000, // Increased for large 3D libraries (three.js, react-three)
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ['three'],
+          'react-three': [
+            '@react-three/fiber',
+            '@react-three/drei',
+            '@react-three/postprocessing',
+            '@react-three/rapier',
+          ],
+        },
+      },
+    },
   },
 };

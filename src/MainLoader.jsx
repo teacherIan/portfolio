@@ -1,35 +1,26 @@
-import { InstancedRigidBodies, useRapier } from '@react-three/rapier';
-import { useMemo, useRef, useEffect, useState } from 'react';
-import matCap from './assets/matCap.png';
-import { useMatcapTexture } from '@react-three/drei';
-import { TextureLoader } from 'three';
-import { useLoader } from '@react-three/fiber';
-import * as THREE from 'three';
-import mapImport from './assets/map.png';
-import trialImport from './assets/trialMap.jpg';
-import * as RAPIER from '@react-three/rapier';
+import { InstancedRigidBodies } from '@react-three/rapier';
+import { useMemo, useRef } from 'react';
+import { useIsMobile } from './hooks/useWindowSize';
+import { MAIN_LOADER } from './config/constants';
 
-export default function MainLoader({ xOffset }) {
-  const cubesCount = 700; //480
+export default function MainLoader() {
   const rigidBodies = useRef();
-  const rapier = useRapier();
   const meshes = useRef();
-  const [currentBody, setCurrentBody] = useState(0);
-  const [startInterval, setStartInterval] = useState(false);
+  const isMobile = useIsMobile();
 
-  // const [matcapTexture] = useMatcapTexture(170); //31 40 45 'D04444_AF2F2F_8B2424_9B2C2C'
-  // const matcapTexture = useLoader(TextureLoader, trialImport); // Update with your matcap path
+  const cubesCount = isMobile
+    ? MAIN_LOADER.CUBES_COUNT_MOBILE
+    : MAIN_LOADER.CUBES_COUNT_DESKTOP;
 
   const instances = useMemo(() => {
     const instances = [];
+    const options = [40, 6, -44, -29, -20, 6, 6, 40];
 
     for (let i = 0; i < cubesCount; i++) {
-      const options = [40, 6, -44, -29, -20, 6, 6, 40];
-      const choice = Math.floor(Math.random() * 8);
+      const choice = Math.floor(Math.random() * options.length);
 
       instances.push({
         key: 'instance_' + i,
-
         position: [
           (Math.random() - 0.5) * 3 + options[choice],
           50 + i * 2,
@@ -40,17 +31,18 @@ export default function MainLoader({ xOffset }) {
     }
 
     return instances;
-  }, []);
+  }, [cubesCount]);
+
   return (
     <>
       <InstancedRigidBodies
-        restitution={0.1}
+        restitution={MAIN_LOADER.RESTITUTION}
         instances={instances}
         colliders="ball"
         ref={rigidBodies}
       >
         <instancedMesh ref={meshes} castShadow args={[null, null, cubesCount]}>
-          <sphereGeometry args={[1.55]} />
+          <sphereGeometry args={[MAIN_LOADER.SPHERE_RADIUS]} />
           <meshMatcapMaterial color={'#ffffff'} />
         </instancedMesh>
       </InstancedRigidBodies>

@@ -1,9 +1,10 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import { RigidBody, interactionGroups } from '@react-three/rapier';
 import bowlingPinObj from '../assets/bowlingPin.glb';
+import { BOWLING_PINS } from '../config/constants';
 
-export default function Pin({ loc }) {
+const Pin = React.memo(function Pin({ loc }) {
   const { nodes, materials } = useGLTF(bowlingPinObj);
   return (
     <group dispose={null}>
@@ -11,7 +12,7 @@ export default function Pin({ loc }) {
         collisionGroups={interactionGroups([1], [1])}
         colliders="cuboid"
         position={loc}
-        scale={30}
+        scale={BOWLING_PINS.SCALE}
         rotation={[-Math.PI / 2, 0, 0]}
       >
         <group>
@@ -31,6 +32,8 @@ export default function Pin({ loc }) {
       </RigidBody>
     </group>
   );
-}
+});
+
+export default Pin;
 
 useGLTF.preload(bowlingPinObj);

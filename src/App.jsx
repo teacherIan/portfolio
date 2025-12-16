@@ -1,141 +1,67 @@
 import { Canvas } from '@react-three/fiber';
 import Experience from './Experience.jsx';
-import { Suspense, useState, useEffect, useRef } from 'react';
-import { KeyboardControls, Grid, useDetectGPU } from '@react-three/drei';
+import { Suspense, useRef, useMemo } from 'react';
+import { KeyboardControls } from '@react-three/drei';
 import { Leva } from 'leva';
 import joystickArt from '../src/assets/joystick.png';
 import { Analytics } from '@vercel/analytics/react';
-
-import {
-  PiArrowFatDownThin,
-  PiArrowFatLeftThin,
-  PiArrowFatRightThin,
-  PiArrowFatUpThin,
-} from 'react-icons/pi';
-
 import { Joystick } from 'react-joystick-component';
-
 import Loading from './Loading.jsx';
+import { useIsSmallScreen, useIsMobile } from './hooks/useWindowSize';
+import { CAMERA, FOG, JOYSTICK } from './config/constants';
 
 export default function App() {
-  const smallScreen = window.innerWidth < 1400;
-  const useGPU = useDetectGPU();
-  const [leftButtonState, setLeftButtonState] = useState(false);
-  const [rightButtonState, setRightButtonState] = useState(false);
-  const [upButtonState, setUpButtonState] = useState(false);
-  const [downButtonState, setDownButtonState] = useState(false);
+  const isSmallScreen = useIsSmallScreen();
+  const isMobile = useIsMobile();
 
   const joystickX = useRef(0);
   const joystickY = useRef(0);
 
-  const handlePressStart = (direction) => {
-    switch (direction) {
-      case 'left':
-        setLeftButtonState(true);
-        break;
-      case 'right':
-        setRightButtonState(true);
-        break;
-      case 'up':
-        setUpButtonState(true);
-        break;
-      case 'down':
-        setDownButtonState(true);
-        break;
-    }
-  };
-
-  const handlePressEnd = (direction) => {
-    switch (direction) {
-      case 'left':
-        setLeftButtonState(false);
-        break;
-      case 'right':
-        setRightButtonState(false);
-        break;
-      case 'up':
-        setUpButtonState(false);
-        break;
-      case 'down':
-        setDownButtonState(false);
-        break;
-    }
-  };
-
-  function handleJoystickMove(e) {
+  const handleJoystickMove = (e) => {
     joystickX.current = e.x;
     joystickY.current = e.y;
-  }
+  };
 
-  function handleJoystickStop() {
+  const handleJoystickStop = () => {
     joystickX.current = 0;
     joystickY.current = 0;
-  }
+  };
+
+  const cameraPosition = useMemo(
+    () => (isSmallScreen ? CAMERA.POSITION_MOBILE : CAMERA.POSITION_DESKTOP),
+    [isSmallScreen]
+  );
+
+  const fogFar = useMemo(
+    () => (isSmallScreen ? FOG.FAR_MOBILE : FOG.FAR_DESKTOP),
+    [isSmallScreen]
+  );
 
   return (
     <>
       <Analytics />
-      <Leva hidden />
+      <Leva hidden={import.meta.env.PROD} />
       <div className="joystick">
         <Joystick
-          size={window.innerWidth < 1000 ? 100 : 200}
+          size={isMobile ? JOYSTICK.SIZE_MOBILE : JOYSTICK.SIZE_DESKTOP}
           sticky={false}
-          baseColor="#50747caa"
-          stickColor="#b6161d" //#50747c
+          baseColor={JOYSTICK.BASE_COLOR}
+          stickColor={JOYSTICK.STICK_COLOR}
           move={handleJoystickMove}
           stop={handleJoystickStop}
           stickImage={joystickArt}
         />
-        {/* JoyStick */}
       </div>
-
-      {/* {useGPU.isMobile ? (
-        <div className="container">
-          <div
-            onTouchStart={() => handlePressStart('left')}
-            onTouchEnd={() => handlePressEnd('left')}
-            className="arrow"
-          >
-            <PiArrowFatLeftThin />
-          </div>
-          <div
-            onTouchStart={() => handlePressStart('right')}
-            onTouchEnd={() => handlePressEnd('right')}
-            className="arrow"
-          >
-            <PiArrowFatRightThin />
-          </div>
-          <div
-            onTouchStart={() => handlePressStart('up')}
-            onTouchEnd={() => handlePressEnd('up')}
-            className="arrow"
-          >
-            <PiArrowFatUpThin />
-          </div>
-          <div
-            onTouchStart={() => handlePressStart('down')}
-            onTouchEnd={() => handlePressEnd('down')}
-            className="arrow"
-          >
-            <PiArrowFatDownThin />
-          </div>
-        </div>
-      ) : null} */}
 
       <Canvas
         camera={{
-          // 82
-          fov: window.innerWidth < 1400 ? 30 : 30,
-          near: 1,
-          far: 2000,
-          position: [
-            window.innerWidth < 1400 ? 0 : 0,
-            window.innerWidth < 1400 ? 300 : 100,
-            window.innerWidth < 1400 ? -500 : -250,
-          ],
+          fov: CAMERA.FOV,
+          near: CAMERA.NEAR,
+          far: CAMERA.FAR,
+          position: cameraPosition,
         }}
       >
-        <fog attach="fog" args={['#50747c', 120, smallScreen ? 1100 : 500]} />
+        <fog attach="fog" args={[FOG.COLOR, FOG.NEAR, fogFar]} />
         <Suspense fallback={<Loading />}>
           <KeyboardControls
             map={[
@@ -146,14 +72,7 @@ export default function App() {
               { name: 'jump', keys: ['Space'] },
             ]}
           >
-            <Experience
-              joystickX={joystickX}
-              joystickY={joystickY}
-              leftButtonState={leftButtonState}
-              rightButtonState={rightButtonState}
-              upButtonState={upButtonState}
-              downButtonState={downButtonState}
-            />
+            <Experience joystickX={joystickX} joystickY={joystickY} />
           </KeyboardControls>
         </Suspense>
       </Canvas>

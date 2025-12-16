@@ -15,7 +15,6 @@ body,
     width: 100svw;
     height: 100svh;
     background: #50747c;
-    /* background-color: black; */
 }
 
 canvas {
@@ -27,45 +26,6 @@ canvas {
 canvas:active {
     cursor: grabbing;
 }
-
-.container {
-    overflow: hidden;
-    touch-action: none;
-    position: absolute;
-    bottom: 0px;
-    display: flex;
-    width: 100svw;
-    z-index: 1000;
-    justify-content: space-between;
-    align-items: center;
-    user-select: none;
-    -webkit-user-select: none;
-    /* Safari */
-    -webkit-touch-callout: none;
-    /* iOS Safari */
-}
-
-
-.arrow {
-    overflow: hidden;
-    touch-action: none;
-    background-color: #50747c00;
-    /* user-select: auto; */
-    font-size: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100px;
-    height: 80px;
-    border: 0px white solid;
-    /* border-radius: 3px; */
-    color: white;
-}
-
-.left {}
-
-.right {}
 
 .joystick {
     position: absolute;

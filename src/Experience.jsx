@@ -1,76 +1,47 @@
-import {
-  PresentationControls,
-  useGLTF,
-  OrbitControls,
-  Sky,
-  SoftShadows,
-  Grid,
-  useDetectGPU,
-} from '@react-three/drei';
+import { PresentationControls, Grid } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
 import Lights from './Lights';
 import Floor from './Floor';
 import FullScene from './FullScene';
 import MainLoader from './MainLoader';
-import Cissp from './certs/Cissp';
-import CCNA from './certs/CCNA';
-import Aws from './certs/Aws';
 import CertText from './text/CertText';
-import Linkedin from './contact/Linkedin';
-import ContactText from './text/ContactText';
-import GitHub from './contact/Github';
-import Google from './contact/Google';
 import GitHubMesh from './contactAsMesh/GitHubMesh';
 import GoogleAsMesh from './contactAsMesh/GoogleAsMesh';
 import LinkedinAsMesh from './contactAsMesh/LinkedinAsMesh';
 import ProjectsText from './text/ProjectsText';
 import Dfw from './Dfw';
 import Ball from './ball/Ball';
-import Cannon from './Shooter/Cannon';
 import Pins from './bowling/Pins';
-import Pin from './bowling/Pin';
 import BookShelf from './BookShelf';
 import ControlsText from './text/controlsText/ControlsText';
 import Player from './Player';
 import Walls from './Walls';
 import Jump from './Jump';
+import { useIsSmallScreen } from './hooks/useWindowSize';
+import { PHYSICS, GRID } from './config/constants';
 
-export default function Experience({
-  joystickX,
-  joystickY,
-  leftButtonState,
-  rightButtonState,
-  upButtonState,
-  downButtonState,
-}) {
-  const useGPU = useDetectGPU();
+export default function Experience({ joystickX, joystickY }) {
+  const isSmallScreen = useIsSmallScreen();
+
   return (
     <>
       <PresentationControls
-        enabled={false} // the controls can be disabled by setting this to false
-        global={false} // Spin globally or by dragging the model
-        cursor={true} // Whether to toggle cursor style on drag
-        snap={{ mass: 4, tension: 100 }} // Snap-back to center (can also be a spring config)
-        speed={0.1} // Speed factor
-        zoom={1} // Zoom factor when half the polar-max is reached
-        rotation={[0, 0, 0]} // Default rotation
-        polar={[0, 0]} // Vertical limits
-        azimuth={[-Math.PI / 40, Math.PI / 10]} // Horizontal limits
+        enabled={false}
+        global={false}
+        cursor={true}
+        snap={{ mass: 4, tension: 100 }}
+        speed={0.1}
+        zoom={1}
+        rotation={[0, 0, 0]}
+        polar={[0, 0]}
+        azimuth={[-Math.PI / 40, Math.PI / 10]}
         config={{ mass: 1, tension: 170, friction: 26 }}
       >
-        <Physics debug={false} gravity={[0, -20, 0]}>
-          <Player
-            joystickX={joystickX}
-            joystickY={joystickY}
-            leftButtonState={leftButtonState}
-            rightButtonState={rightButtonState}
-            upButtonState={upButtonState}
-            downButtonState={downButtonState}
-          />
+        <Physics debug={false} gravity={PHYSICS.GRAVITY}>
+          <Player joystickX={joystickX} joystickY={joystickY} />
           <Pins />
           <BookShelf loc={[-45, -100, -45]} />
           <FullScene />
-          {/* <OrbitControls makeDefault /> */}
           <Lights />
           <Floor />
           <MainLoader />
@@ -85,17 +56,18 @@ export default function Experience({
           <Jump />
         </Physics>
         <CertText />
-        {/* <ContactText /> */}
         <Grid
-          position={[0, -9, 0]}
-          args={[50, 50]}
-          cellColor="white"
-          cellThickness={1}
+          position={GRID.POSITION}
+          args={GRID.ARGS}
+          cellColor={GRID.CELL_COLOR}
+          cellThickness={GRID.CELL_THICKNESS}
           infiniteGrid
-          fadeDistance={window.innerWidth < 1400 ? 700 : 500}
-          sectionSize={100}
-          cellSize={50}
-          sectionColor={'#ffffff'}
+          fadeDistance={
+            isSmallScreen ? GRID.FADE_DISTANCE_MOBILE : GRID.FADE_DISTANCE_DESKTOP
+          }
+          sectionSize={GRID.SECTION_SIZE}
+          cellSize={GRID.CELL_SIZE}
+          sectionColor={GRID.SECTION_COLOR}
         />
       </PresentationControls>
     </>
