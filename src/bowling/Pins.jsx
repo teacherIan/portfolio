@@ -2,7 +2,6 @@ import Pin from './Pin';
 import { useControls } from 'leva';
 import { useIsMobile } from '../hooks/useWindowSize';
 import { BOWLING_PINS } from '../config/constants';
-import { useMemo } from 'react';
 
 const PIN_POSITIONS = [
   [-70, -8, 0],
